@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SOUPS 2026 — Hannover map</title>
+<link rel="stylesheet" href="_ds/broadsheet-f75e36a9-287e-4ae1-8947-5158a447224a/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; height: 100%; background: var(--color-bg); font-family: var(--font-body); color: var(--color-text); }
+  #map { position: absolute; inset: 0; background: var(--color-neutral-200); }
+  .leaflet-container { font-family: var(--font-body); }
+  .leaflet-popup-content-wrapper { border-radius: var(--radius-md); background: var(--color-bg); color: var(--color-text); box-shadow: var(--shadow-lg); }
+  .leaflet-popup-content { margin: var(--space-3); font-size: 15px; line-height: 1.45; }
+  .leaflet-popup-tip { background: var(--color-bg); }
+  .pk { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-accent-700); }
+  .pt { font-size: 19px; font-weight: 600; margin: 2px 0 4px; line-height: 1.2; }
+  .pm { color: var(--color-neutral-700); font-size: 14px; }
+  .pa { display: inline-block; margin-top: var(--space-2); color: var(--color-accent-700); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; }
+  .pa:hover { color: var(--color-accent-600); }
+  .pin { display: block; border-radius: 50%; border: 2px solid var(--color-bg); box-shadow: 0 1px 3px rgba(0,0,0,.4); }
+  .legend { background: var(--color-bg); padding: var(--space-2) var(--space-3); box-shadow: var(--shadow-md); border-radius: var(--radius-md); font-size: 13px; line-height: 1.9; }
+  .legend b { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--color-neutral-700); margin-bottom: 2px; }
+  .legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 7px; vertical-align: 1px; }
+  a:focus-visible, .leaflet-control a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+const VENUE = [52.3829, 9.7175];
+const CAT = {
+  venue:  { color: '#d6006c', label: 'Conference venue' },
+  nature: { color: '#0088b0', label: 'Nature & wildlife' },
+  sport:  { color: '#006786', label: 'Sports & action' },
+  food:   { color: '#edbb00', label: 'Dining & bars' }
+};
+const PLACES = [
+  ['venue','Leibniz University Hannover','Welfengarten 1, 30167 Hannover','SOUPS 2026 · Welfenschloss',52.3829,9.7175],
+  ['nature','Herrenhausen Gardens','Herrenhäuser Str. 4, 30419 Hannover','~1.6 km · 10 min by tram 4/5',52.3906,9.6974],
+  ['nature','SEA LIFE Hannover','Herrenhäuser Str. 4a, 30419 Hannover','~1.5 km · 10 min by tram 4/5',52.3901,9.6996],
+  ['nature','Maschsee','Rudolf-von-Bennigsen-Ufer, 30169 Hannover','~3.2 km · 15 min by tram',52.3577,9.7412],
+  ['nature','Erlebnis-Zoo Hannover','Adenauerallee 1, 30175 Hannover','~3 km · 20 min by tram + bus',52.3757,9.7594],
+  ['nature','Eilenriede — Waldstation','Am Lindenberge 2, 30655 Hannover','Forest edge ~2 km · Waldstation ~4 km',52.3872,9.7757],
+  ['sport','Beta Boulderhalle','Weidendamm 2, 30167 Hannover','~600 m · 8 min walk',52.3840,9.7263],
+  ['sport','NeonGolf Hannover','Heiligerstraße 15-16, 30159 Hannover','~1.1 km · 15 min walk',52.3760,9.7295],
+  ['sport','Leine-Welle','Schloßstraße, 30159 Hannover','~1.4 km · 18 min walk',52.3733,9.7317],
+  ['sport','Jump One Hannover','Voltastraße 4, 30165 Hannover','~1.2 km · 16 min walk',52.3936,9.7208],
+  ['sport','HI-Score','Anna-Zammert-Straße 28, 30171 Hannover','~3.8 km · 20 min by tram · Fri–Sun only',52.3648,9.7645],
+  ['food','Bavarium Hannover','Windmühlenstraße 6, 30159 Hannover','~1.9 km · 10 min by tram',52.3705,9.7362],
+  ['food','Waterloo Biergarten','Waterloostraße 1, 30169 Hannover','~1.9 km · 24 min walk',52.3679,9.7300],
+  ['food','Strandleben','Weddigenufer 25, 30167 Hannover','~1.3 km · 17 min walk',52.3712,9.7166],
+  ['food','Extrakt','Hahnenstraße 3, 30167 Hannover','~200 m · 3 min walk',52.3830,9.7148],
+  ['food','Destille','Im Moore 3, 30167 Hannover','~220 m · 3 min walk',52.3826,9.7207],
+  ['food','Santana Cocktailbar','Rehbockstraße 38A, 30167 Hannover','~270 m · 4 min walk',52.3852,9.7188],
+  ['food','Cheers Hannover','Goseriede 4, 30159 Hannover','~1.3 km · 17 min walk',52.3757,9.7332]
+];
+
+const map = L.map('map', { center: VENUE, zoom: 14, zoomControl: true, scrollWheelZoom: true });
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors', maxZoom: 19
+}).addTo(map);
+
+const group = [];
+PLACES.forEach(([cat, name, addr, meta, lat, lon]) => {
+  const isVenue = cat === 'venue';
+  const d = isVenue ? 22 : 15;
+  const icon = L.divIcon({
+    className: '',
+    iconSize: [d, d],
+    iconAnchor: [d / 2, d / 2],
+    html: '<span class="pin" style="width:' + d + 'px;height:' + d + 'px;background:' + CAT[cat].color + (isVenue ? ';border-width:3px' : '') + '"></span>'
+  });
+  const dir = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(addr);
+  const m = L.marker([lat, lon], { icon, title: name, riseOnHover: true, keyboard: true }).addTo(map);
+  m.bindPopup(
+    '<div class="pk">' + CAT[cat].label + '</div>' +
+    '<div class="pt">' + name + '</div>' +
+    '<div class="pm">' + meta + '<br>' + addr + '</div>' +
+    '<a class="pa" href="' + dir + '" target="_blank" rel="noopener">Directions ↗</a>'
+  );
+  m.bindTooltip(name, { direction: 'right', offset: [10, 0], opacity: 0.95 });
+  group.push([lat, lon]);
+});
+
+map.fitBounds(L.latLngBounds(group).pad(0.06));
+
+const legend = L.control({ position: 'bottomleft' });
+legend.onAdd = () => {
+  const el = L.DomUtil.create('div', 'legend');
+  el.innerHTML = '<b>SOUPS 2026 · Hannover</b>' + Object.values(CAT)
+    .map((c) => '<div><i style="background:' + c.color + '"></i>' + c.label + '</div>').join('');
+  return el;
+};
+legend.addTo(map);
+
+// Let the host app ask the map to focus one place.
+addEventListener('message', (e) => {
+  const name = e.data && e.data.focus;
+  if (!name) return;
+  const p = PLACES.find((x) => x[1] === name);
+  if (p) map.setView([p[4], p[5]], 16, { animate: true });
+});
+</script>
+</body>
+</html>

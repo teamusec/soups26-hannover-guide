@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f3f2f2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SOUPS 26">
+<meta name="description" content="SOUPS 2026 Hannover — an off-programme guide to the city: parks, bouldering, beer gardens, the schedule and the practical stuff.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+<link rel="stylesheet" href="_ds/broadsheet-f75e36a9-287e-4ae1-8947-5158a447224a/styles.css">
+<script src="_ds/broadsheet-f75e36a9-287e-4ae1-8947-5158a447224a/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-bg); -webkit-text-size-adjust: 100%; overscroll-behavior-y: none; }
+  a { color: var(--color-accent-700); text-underline-offset: 3px; }
+  a:hover { color: var(--color-accent-600); }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  ::selection { background: color-mix(in srgb, var(--color-accent) 25%, transparent); }
+  button { font-family: var(--font-body); }
+</style>
+</helmet>
+
+<div style="min-height:100dvh;display:flex;flex-direction:column;max-width:520px;margin:0 auto;background:var(--color-bg);position:relative">
+
+  <header style="position:sticky;top:0;z-index:30;background:var(--color-bg);padding:16px 20px 0">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px">
+      <div>
+        <div style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-neutral-700)">Hannover · 23–26 August 2026</div>
+        <h1 style="font-size:31px;margin:3px 0 0;letter-spacing:-0.02em">The Off-Programme</h1>
+      </div>
+      <div style="width:70px;height:36px;flex:none">
+        <image-slot id="soups-logo" shape="rect" fit="contain" src="https://soups.page/SOUPS26.png" placeholder="SOUPS 26 logo"></image-slot>
+      </div>
+    </div>
+    <div style="height:3px;background:var(--color-text);margin-top:11px"></div>
+    <div style="height:1px;background:var(--color-text);margin-top:2px"></div>
+  </header>
+
+  <main style="flex:1;padding:0 20px 110px">
+
+    <!-- ═══ EXPLORE ═══ -->
+    <div hidden="{{ notExplore }}">
+
+      <p style="font-size:17px;line-height:1.5;margin:22px 0 0;text-wrap:pretty">Three days of talks, two free evenings. Hannover is small, flat and unreasonably green — nearly everything below is a walk or one tram ride from the Welfenschloss.</p>
+
+      <div style="margin:16px 0 0;font-size:14px;line-height:1.6;color:var(--color-accent-2-700)"><span style="font-style:italic">Your free evenings:</span> Monday, once the poster session winds down, and the whole of Tuesday evening.</div>
+
+      <div hidden="{{ bannerHidden }}" style="margin:24px 0 0;padding:15px 16px;background:var(--color-accent-100);border-radius:var(--radius-md)">
+        <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:5px">Keep it on your phone</div>
+        <p style="margin:0 0 12px;font-size:14px;line-height:1.55">Install the guide and it works with no signal at all — useful in the Stadtbahn tunnels and when roaming gives up.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <span hidden="{{ noPrompt }}"><button class="btn btn-primary" onClick="{{ doInstall }}" style="font-size:14px;min-height:44px">Add to home screen</button></span>
+          <span hidden="{{ hasPrompt }}" style="font-size:13px;line-height:1.5;color:var(--color-neutral-700);flex:1;min-width:190px">iPhone: <span style="font-style:italic">Share → Add to Home Screen</span>. Android: <span style="font-style:italic">⋮ → Install app</span>.</span>
+          <button onClick="{{ dismissBanner }}" style="appearance:none;background:none;border:0;padding:10px 4px;margin:0;font:inherit;font-size:13px;color:var(--color-neutral-700);cursor:pointer;text-decoration:underline;text-underline-offset:3px;min-height:44px">Not now</button>
+        </div>
+      </div>
+
+      <div style="margin:28px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:9px">Browse</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <button onClick="{{ catAll }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatAll }}; color: {{ fgCatAll }}; border-color: {{ bdCatAll }}">Everything</button>
+          <button onClick="{{ catNature }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatNature }}; color: {{ fgCatNature }}; border-color: {{ bdCatNature }}">Nature</button>
+          <button onClick="{{ catSport }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatSport }}; color: {{ fgCatSport }}; border-color: {{ bdCatSport }}">Sports &amp; action</button>
+          <button onClick="{{ catFood }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatFood }}; color: {{ fgCatFood }}; border-color: {{ bdCatFood }}">Food &amp; drink</button>
+        </div>
+      </div>
+
+      <div style="margin:18px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:9px">Narrow it down</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <button onClick="{{ tagFree }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagFree }}; color: {{ fgTagFree }}; border-color: {{ bdTagFree }}">Free</button>
+          <button onClick="{{ tagWalk }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagWalk }}; color: {{ fgTagWalk }}; border-color: {{ bdTagWalk }}">Under 20 min walk</button>
+          <button onClick="{{ tagIndoor }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagIndoor }}; color: {{ fgTagIndoor }}; border-color: {{ bdTagIndoor }}">Indoors</button>
+          <button onClick="{{ tagOutdoor }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagOutdoor }}; color: {{ fgTagOutdoor }}; border-color: {{ bdTagOutdoor }}">Outdoors</button>
+          <button onClick="{{ tagBook }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagBook }}; color: {{ fgTagBook }}; border-color: {{ bdTagBook }}">Book ahead</button>
+          <button onClick="{{ tagSaved }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagSaved }}; color: {{ fgTagSaved }}; border-color: {{ bdTagSaved }}">★ Saved {{ savedCount }}</button>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:22px 0 0">
+        <div style="font-size:13px;color:var(--color-neutral-700);font-style:italic">{{ resultLine }}</div>
+        <span hidden="{{ noFilters }}"><button onClick="{{ clearFilters }}" style="appearance:none;background:none;border:0;padding:8px 0;margin:0;font:inherit;font-size:13px;color:var(--color-accent-700);cursor:pointer;text-decoration:underline;text-underline-offset:3px">Clear</button></span>
+      </div>
+
+      <div hidden="{{ hasResults }}" style="margin:34px 0 60px;text-align:center">
+        <div style="font-size:21px;font-family:var(--font-heading);font-weight:600">Nothing matches that.</div>
+        <p style="font-size:14px;color:var(--color-neutral-700);margin:8px 0 0">Try dropping one of the filters.</p>
+      </div>
+
+      <div style="margin-top:30px"></div>
+
+      <!-- ── Nature & wildlife ── -->
+      <div hidden="{{ hHeadNature }}" style="margin:0 0 26px">
+        <h2 style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin:0">Nature &amp; wildlife</h2>
+      </div>
+
+      <article hidden="{{ h_herrenhausen }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-herrenhausen" shape="rect" radius="2" fit="cover" placeholder="Herrenhausen Gardens — the Great Garden parterre from the terrace"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Nature · Ticket · 2 h</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Herrenhausen Gardens</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.6 km · tram 4 or 5, 10 min</div>
+          </div>
+          <button onClick="{{ s_herrenhausen }}" aria-label="Save Herrenhausen Gardens" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_herrenhausen }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Baroque geometry at full scale — 50 hectares of clipped hedge, fountains that actually run, and the Grotto that Niki de Saint Phalle lined with mirrors and glass. The single best hour you can spend outdoors here.</p>
+        <div hidden="{{ x_herrenhausen }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Tram 4 or 5 from <span style="font-style:italic">Universität</span> to <span style="font-style:italic">Herrenhäuser Gärten</span>, then three minutes on foot. Herrenhäuser Str. 4, 30419 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>A slow walk, a conversation away from the badge, plant people.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Ticket at the gate. The Great Garden and the Berggarten have separate entrances, and closing time shifts with the season — check before you set off.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Herrenh%C3%A4user%20Str.%204%2C%2030419%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://herrenhaeuser-gaerten.hannover.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_herrenhausen }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_herrenhausen }}</span></button>
+      </article>
+
+      <article hidden="{{ h_sealife }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-sealife" shape="rect" radius="2" fit="cover" placeholder="SEA LIFE Hannover — the walk-through ocean tunnel"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Nature · Ticket · 1 h</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">SEA LIFE Hannover</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.5 km · tram 4 or 5, 10 min · indoors</div>
+          </div>
+          <button onClick="{{ s_sealife }}" aria-label="Save SEA LIFE Hannover" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_sealife }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">An aquarium tucked in beside the gardens: tropical tanks, sharks, sea turtles and a tunnel you walk through. The obvious answer to a wet afternoon, and it pairs neatly with Herrenhausen next door.</p>
+        <div hidden="{{ x_sealife }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Same tram stop as Herrenhausen. Herrenhäuser Str. 4a, 30419 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>Rain, jet lag, anyone who has brought family along.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Tickets are usually cheaper booked online than at the door, and midday is the busiest hour.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Herrenh%C3%A4user%20Str.%204a%2C%2030419%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.visitsealife.com/hannover/en/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_sealife }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_sealife }}</span></button>
+      </article>
+
+      <article hidden="{{ h_maschsee }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-maschsee" shape="rect" radius="2" fit="cover" placeholder="Maschsee — the lake at golden hour, sailing boats and the shore promenade"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Nature · Free · 1–2 h</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Maschsee</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~3.2 km · 15 min by tram</div>
+          </div>
+          <button onClick="{{ s_maschsee }}" aria-label="Save Maschsee" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_maschsee }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">The city's front garden — a lake in the middle of town with a flat path all the way round. The loop is about six kilometres: an hour at a walk, twenty minutes on a bike. Rowing boats, a passenger ferry, ice cream, and beer on the north shore.</p>
+        <div hidden="{{ x_maschsee }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Tram towards the centre, then a short walk south past the Neues Rathaus. Start at the northern tip by the Sprengel Museum. 30169 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>A run before breakfast, an unhurried walk with a co-author, sunset.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Costs nothing and never closes. The north end has the cafés and boat hire; the south end is quieter.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Maschsee%2C%2030169%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.visit-hannover.com/Kultur-Sehensw%C3%BCrdigkeiten/Sehensw%C3%BCrdigkeiten/Maschsee" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">More info ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_maschsee }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_maschsee }}</span></button>
+      </article>
+
+      <article hidden="{{ h_eilenriede }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-eilenriede" shape="rect" radius="2" fit="cover" placeholder="Eilenriede — a broad path under old beeches in the city forest"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Nature · Free · Open-ended</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Eilenriede city forest</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">Western edge ~2 km · Waldstation ~4 km</div>
+          </div>
+          <button onClick="{{ s_eilenriede }}" aria-label="Save Eilenriede" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_eilenriede }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Twice the size of Central Park, and it begins a short walk east of the venue. Centuries-old trees, streams, sunbathing lawns, fitness trails and the Waldstation forest-education centre. Walk in on any path and you stop hearing the city within minutes.</p>
+        <div hidden="{{ x_eilenriede }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Head east on foot for the nearest edge, or take tram 3 or 7 a few stops. The Waldstation sits deeper in, at Am Lindenberge. 30161 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>Clearing your head between sessions, a morning run, an unplanned hour.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Free and never closed. Paths are well signposted but the forest is genuinely large — keep a map handy if you leave the main routes.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Eilenriede%2C%2030161%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.hannover.de/Kultur-Freizeit/Naherholung/Raus-in-die-Natur/W%C3%A4lder/Die-Eilenriede" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">More info ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_eilenriede }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_eilenriede }}</span></button>
+      </article>
+
+      <article hidden="{{ h_zoo }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-zoo" shape="rect" radius="2" fit="cover" placeholder="Erlebnis-Zoo Hannover — the Yukon Bay or Zambezi themed landscape"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Nature · Ticket · Half a day</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Erlebnis-Zoo Hannover</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~3 km · 20 min by tram and bus</div>
+          </div>
+          <button onClick="{{ s_zoo }}" aria-label="Save Erlebnis-Zoo Hannover" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_zoo }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">One of the most-copied zoos in Europe: animals in built worlds — Yukon Bay, Zambezi, Gorilla Mountain — rather than enclosures. It is bigger than it looks from the map, so give it a proper afternoon.</p>
+        <div hidden="{{ x_zoo }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Tram towards the centre then bus 128 or 134 to <span style="font-style:italic">Zoo</span>. Adenauerallee 1, 30175 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>A long free afternoon, anyone travelling with children.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>The priciest ticket on this list, and last entry is well before closing — start early rather than after lunch.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Adenauerallee%201%2C%2030175%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.zoo-hannover.de/english" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_zoo }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_zoo }}</span></button>
+      </article>
+
+      <!-- ── Sports & action ── -->
+      <div hidden="{{ hHeadSport }}" style="margin:8px 0 26px">
+        <h2 style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin:0">Sports &amp; action</h2>
+      </div>
+
+      <article hidden="{{ h_beta }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-beta" shape="rect" radius="2" fit="cover" placeholder="Beta Boulderhalle — climbers on a colourful bouldering wall"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Sport · Ticket · 2 h</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Beta Boulderhalle</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~600 m · 8 min walk · indoors</div>
+          </div>
+          <button onClick="{{ s_beta }}" aria-label="Save Beta Boulderhalle" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_beta }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">The nearest thing on this list to the venue, and the easiest to organise on a whim. Bouldering means climbing at jumping height — no ropes, no partner needed. Routes run from complete-beginner to genuinely hard.</p>
+        <div hidden="{{ x_beta }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Eight minutes on foot south of the Welfenschloss. Weidendamm 2, 30167 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>Burning off a day of sitting; a low-effort group activity for four to eight people.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Shoes are rentable at the desk — bring sports clothes and that is all. Evenings after work are the busiest window.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Weidendamm%202%2C%2030167%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://boulderhalle-beta.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_beta }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_beta }}</span></button>
+      </article>
+
+      <article hidden="{{ h_leinewelle }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-leinewelle" shape="rect" radius="2" fit="cover" placeholder="Leine-Welle — a surfer on the standing river wave beside the old town"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Sport · Free to watch · 30 min</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Leine-Welle</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.4 km · 18 min walk</div>
+          </div>
+          <button onClick="{{ s_leinewelle }}" aria-label="Save Leine-Welle" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_leinewelle }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">A standing wave built into the river in the middle of the old town, right beside the state parliament. River surfers take it in turns while the rest of the city watches from the bridge. Easily the strangest ten minutes you can add to a walk into town — and free.</p>
+        <div hidden="{{ x_leinewelle }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Walk south along the Leine into the Altstadt. Schloßstraße, 30159 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>A detour on the way to dinner; watching, mostly.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Watching from the bridges costs nothing. Actually surfing needs a slot booked in advance, and the wave only runs when river conditions allow — check the site the same day.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Schlo%C3%9Fstra%C3%9Fe%2C%2030159%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.enercity-leinewelle.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_leinewelle }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_leinewelle }}</span></button>
+      </article>
+
+      <article hidden="{{ h_neongolf }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-neongolf" shape="rect" radius="2" fit="cover" placeholder="NeonGolf Hannover — blacklit 3D mini-golf course glowing in neon"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Sport · Ticket · Book ahead</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">NeonGolf Hannover</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.1 km · 15 min walk · indoors</div>
+          </div>
+          <button onClick="{{ s_neongolf }}" aria-label="Save NeonGolf Hannover" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_neongolf }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Eighteen holes of blacklit mini-golf played in 3D glasses, where the walls appear to move. Gloriously silly, entirely weatherproof, and about the most reliable icebreaker there is for a group who have only just met.</p>
+        <div hidden="{{ x_neongolf }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Fifteen minutes on foot towards Steintor. Heiligerstraße 15–16, 30159 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>Groups of four to twelve; rain; the awkward first evening.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Book a slot in advance for anything larger than a couple of people — evenings fill up.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Heiligerstra%C3%9Fe%2015%2C%2030159%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.funxperience.de/hannover/neongolf/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_neongolf }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_neongolf }}</span></button>
+      </article>
+
+      <article hidden="{{ h_jumpone }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-jumpone" shape="rect" radius="2" fit="cover" placeholder="Jump One Hannover — trampoline park interior with jumping zones"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Sport · Ticket · 2 h</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Jump One Hannover</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.2 km · 16 min walk · indoors</div>
+          </div>
+          <button onClick="{{ s_jumpone }}" aria-label="Save Jump One Hannover" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_jumpone }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">A warehouse full of trampolines in Hainholz: jumping zones, dodgeball courts, a ninja-warrior course and airbags for the ambitious. Exhausting in the best way, and completely indifferent to the weather.</p>
+        <div hidden="{{ x_jumpone }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Sixteen minutes on foot north of campus, or two tram stops. Voltastraße 4, 30165 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>Rainy days, competitive people, undoing a day in a lecture hall.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Grip socks are compulsory and sold at reception. Sessions are sold in fixed blocks — check times before you walk over.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Voltastra%C3%9Fe%204%2C%2030165%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.jump-one.fitness/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_jumpone }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_jumpone }}</span></button>
+      </article>
+
+      <article hidden="{{ h_hiscore }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-hiscore" shape="rect" radius="2" fit="cover" placeholder="HI-Score — rows of lit arcade cabinets and vintage consoles"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Sport · Ticket · Booking required</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">HI-Score</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~3.8 km · 20 min by tram · indoors</div>
+          </div>
+          <button onClick="{{ s_hiscore }}" aria-label="Save HI-Score" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_hiscore }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Germany's largest video-game museum: a thousand square metres, fifty years of hardware, and more than a hundred consoles and arcade cabinets all switched on and free to play once you are inside.</p>
+        <div style="margin:14px 0 0;padding:11px 13px;background:var(--color-accent-2-100);border-radius:var(--radius-md);font-size:13.5px;line-height:1.5;color:var(--color-accent-2-700)"><span style="font-style:italic">Heads up:</span> open Friday to Sunday only — so this is a before-or-after-the-conference plan, not a Tuesday-evening one.</div>
+        <div hidden="{{ x_hiscore }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Tram south-east, about twenty minutes door to door. Anna-Zammert-Straße 28, 30171 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Opening</div>
+            <div>Friday 16:00–23:45 · Saturday 12:00–23:45 · Sunday 14:00–17:45. Friday and Saturday evening slots are 18+.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Admission runs in fixed four-hour slots and an online reservation is mandatory — nothing at the door.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Anna-Zammert-Stra%C3%9Fe%2028%2C%2030171%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://hi-score.org/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Book a slot ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_hiscore }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_hiscore }}</span></button>
+      </article>
+
+      <!-- ── Food & drink ── -->
+      <div hidden="{{ hHeadFood }}" style="margin:8px 0 26px">
+        <h2 style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin:0">Food &amp; drink</h2>
+        <p style="font-size:14px;color:var(--color-neutral-700);margin:9px 0 0;line-height:1.55;text-wrap:pretty">Three of these are inside five minutes of the venue, which is either very convenient or a problem, depending on your Wednesday-morning talk.</p>
+      </div>
+
+      <article hidden="{{ h_extrakt }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-extrakt" shape="rect" radius="2" fit="cover" placeholder="Extrakt — the cluttered, cosy corner-pub interior"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Pub · Cheap · No booking</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Extrakt</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~200 m · 3 min walk</div>
+          </div>
+          <button onClick="{{ s_extrakt }}" aria-label="Save Extrakt" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_extrakt }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">A corner pub three minutes from the Welfenschloss, decorated by accident over about thirty years and beloved by students for it. Pizza, burgers, baked potatoes, cheap beer, no hurry. There is no website, which tells you most of what you need to know.</p>
+        <div hidden="{{ x_extrakt }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Straight out of the main building and left. Hahnenstraße 3, 30167 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>The unplanned post-session pint; a long table of eight; talking rather than looking.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Cash is welcome and sometimes preferred. No reservations — just turn up early if you are a crowd.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hahnenstra%C3%9Fe%203%2C%2030167%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+          </div>
+        </div>
+        <button onClick="{{ t_extrakt }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_extrakt }}</span></button>
+      </article>
+
+      <article hidden="{{ h_destille }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-destille" shape="rect" radius="2" fit="cover" placeholder="Destille — dark wooden tables in the 1970s student pub"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Pub · Cheap · No booking</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Destille</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~220 m · 3 min walk</div>
+          </div>
+          <button onClick="{{ s_destille }}" aria-label="Save Destille" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_destille }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">The archetypal German student pub, essentially unchanged since the 1970s: dark wooden tables, left-alternative posters, regional beer poured properly and hearty food at fair prices. Two minutes further than Extrakt and a different century.</p>
+        <div hidden="{{ x_destille }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Three minutes west of the venue. Im Moore 3, 30167 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>Dinner that does not need planning; a quiet corner for four.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Kitchen hours are shorter than bar hours — eat earlier than you think.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Im%20Moore%203%2C%2030167%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.destille-hannover.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_destille }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_destille }}</span></button>
+      </article>
+
+      <article hidden="{{ h_santana }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-santana" shape="rect" radius="2" fit="cover" placeholder="Santana Cocktailbar — the bar counter, low light, cocktails going out"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Bar · Cheap · Late</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Santana Cocktailbar</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~270 m · 4 min walk</div>
+          </div>
+          <button onClick="{{ s_santana }}" aria-label="Save Santana Cocktailbar" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_santana }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">The Nordstadt's cocktail institution: an enormous list, student prices, low light and a room that is always slightly too full. Four minutes from the venue and open long after the posters come down.</p>
+        <div style="margin:14px 0 0;padding:11px 13px;background:var(--color-accent-2-100);border-radius:var(--radius-md);font-size:13.5px;line-height:1.5;color:var(--color-accent-2-700)"><span style="font-style:italic">Note:</span> smoking is permitted indoors.</div>
+        <div hidden="{{ x_santana }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Four minutes north-west of the venue. Rehbockstraße 38A, 30167 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>The second stop of the evening; a large, loud, cheerful group.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>It is a smoking bar — worth flagging to your group before you go. Happy-hour pricing runs early.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rehbockstra%C3%9Fe%2038A%2C%2030167%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.santanacocktails.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_santana }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_santana }}</span></button>
+      </article>
+
+      <article hidden="{{ h_strandleben }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-strandleben" shape="rect" radius="2" fit="cover" placeholder="Strandleben — deck chairs and sand on the riverbank at dusk"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Beach bar · Cheap · Outdoors</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Strandleben</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.3 km · 17 min walk</div>
+          </div>
+          <button onClick="{{ s_strandleben }}" aria-label="Save Strandleben" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_strandleben }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Sand, deck chairs and a bar where the Ihme meets the Leine. Shoes off, drink in hand, sun going down over the water — the closest Hannover gets to a holiday, seventeen minutes from your last session.</p>
+        <div hidden="{{ x_strandleben }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Walk south-west along the river. Weddigenufer 25, 30167 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>The Tuesday evening if the weather holds; sunset; twenty people who want to spread out.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Entirely weather-dependent and seasonal — check that it is open before you march everyone over.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Weddigenufer%2025%2C%2030167%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.spandauprojekt.de/strandleben/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_strandleben }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_strandleben }}</span></button>
+      </article>
+
+      <article hidden="{{ h_waterloo }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-waterloo" shape="rect" radius="2" fit="cover" placeholder="Waterloo Biergarten — long benches under tall trees, glasses on the table"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Beer garden · Cheap · Outdoors</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Waterloo Biergarten</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.9 km · 24 min walk or 10 by tram</div>
+          </div>
+          <button onClick="{{ s_waterloo }}" aria-label="Save Waterloo Biergarten" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_waterloo }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">The classic: gravel underfoot, tall trees overhead, long benches you share with strangers, and cold beer with something fried. Big enough to absorb a conference-sized group without a reservation.</p>
+        <div hidden="{{ x_waterloo }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Tram towards the centre and walk down past the Waterloo column. Waterloostraße 1, 30169 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>A big, informal group; the first warm evening; walking on to the Maschsee afterwards.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Open-air, so rain moves the plan indoors. Sport is often on the screens, which is either a feature or a warning.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Waterloostra%C3%9Fe%201%2C%2030169%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.waterloo-biergarten.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_waterloo }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_waterloo }}</span></button>
+      </article>
+
+      <article hidden="{{ h_bavarium }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-bavarium" shape="rect" radius="2" fit="cover" placeholder="Bavarium — wood-panelled tavern interior with long tables"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Tavern · Mid · Reserve for groups</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Bavarium</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.9 km · 10 min by tram · indoors</div>
+          </div>
+          <button onClick="{{ s_bavarium }}" aria-label="Save Bavarium" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_bavarium }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Dark wood, long tables, schnitzel that overhangs the plate, pork knuckle for the brave and Bavarian beer by the litre. If a visiting colleague asks for "proper German food", this is where you take them.</p>
+        <div hidden="{{ x_bavarium }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>City centre, near Aegidientorplatz. Windmühlenstraße 6, 30159 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>A sit-down dinner with six to twelve people; first-time visitors to Germany.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Reserve if you are more than four — it fills in the evening. Vegetarians are catered for, but the menu is unapologetically meat-led.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Windm%C3%BChlenstra%C3%9Fe%206%2C%2030159%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.bavarium.de/de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_bavarium }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_bavarium }}</span></button>
+      </article>
+
+      <article hidden="{{ h_cheers }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-cheers" shape="rect" radius="2" fit="cover" placeholder="Cheers Hannover — busy sports bar, screens on, karaoke stage"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Bar · Mid · Loud</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Cheers Hannover</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.3 km · 17 min walk · indoors</div>
+          </div>
+          <button onClick="{{ s_cheers }}" aria-label="Save Cheers Hannover" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_cheers }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Sports bar and karaoke room in one, in the middle of town. Burgers, nachos, screens, and a regular karaoke night that has ended more than one academic reputation. Go if the group wants noise rather than conversation.</p>
+        <div hidden="{{ x_cheers }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Seventeen minutes on foot towards Steintor. Goseriede 4, 30159 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>The last night; karaoke volunteers; anyone who wants a live match on.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Check which nights karaoke runs before you promise anyone a stage.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Goseriede%204%2C%2030159%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://cheers-hannover.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_cheers }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_cheers }}</span></button>
+      </article>
+
+      <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Opening hours, prices and bookings change. Everything here was read off each venue's own site while we put the guide together — tap through before you cross town.</p>
+
+    </div>
+
+    <!-- ═══ MAP ═══ -->
+    <div hidden="{{ notMap }}">
+      <h2 style="font-size:26px;margin:22px 0 0">Everything on one map</h2>
+      <p style="font-size:14.5px;line-height:1.55;color:var(--color-neutral-700);margin:8px 0 14px;text-wrap:pretty">Magenta is the venue. Tap a pin for the address and door-to-door directions.</p>
+      <div style="margin:0 -20px;height:calc(100dvh - 300px);min-height:400px;background:var(--color-neutral-200)">
+        <iframe src="map.html" title="Map of SOUPS 2026 activity locations in Hannover" loading="lazy" style="width:100%;height:100%;border:0;display:block"></iframe>
+      </div>
+      <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:14px 0 0;font-style:italic">Map data © OpenStreetMap contributors. Pin positions are approximate — use the Directions button for door-to-door routing.</p>
+    </div>
+
+    <!-- ═══ PROGRAMME ═══ -->
+    <div hidden="{{ notProgram }}">
+      <h2 style="font-size:26px;margin:22px 0 0">Programme</h2>
+      <p style="font-size:14.5px;line-height:1.55;color:var(--color-neutral-700);margin:8px 0 0;text-wrap:pretty">Draft, and subject to change. Workshops start Sunday at 13:00; the main conference opens Monday at 12:30.</p>
+      <div style="margin:18px 0 0"><a class="btn btn-secondary" href="https://soups.page/2026/program.html" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Full programme on soups.page ↗</a></div>
+
+      <div style="margin:34px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700)">Sunday</div>
+        <h3 style="font-size:23px;margin:3px 0 0">23 August · Workshops</h3>
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:12px 14px;margin-top:16px;font-size:14.5px;line-height:1.5">
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">13:00</div>
+          <div><span style="font-weight:600">Workshops begin</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:2px">Eight half-day workshops across Sunday afternoon and Monday morning — see the workshop pages for individual rooms and times.</div></div>
+        </div>
+      </div>
+
+      <div style="margin:38px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700)">Monday</div>
+        <h3 style="font-size:23px;margin:3px 0 0">24 August · Day 1</h3>
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:14px 14px;margin-top:16px;font-size:14.5px;line-height:1.5">
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">am</div>
+          <div>Workshops continue</div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">12:30</div>
+          <div><span style="font-weight:600">Opening remarks and awards</span></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">13:00</div>
+          <div><span style="font-weight:600">Authentication &amp; Credentials</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">Password update processes on top-ranked websites · Passkeys in the wild: FIDO2 UX consistency · How users enter generated passwords on non-desktop devices · Partial recovery &amp; memorability in self-sovereign digital identity</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">14:15</div>
+          <div style="color:var(--color-neutral-700)">Break</div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">14:45</div>
+          <div><span style="font-weight:600">Families &amp; Shared Devices</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">SoK: usable privacy interventions for parents · Non-parental sharenting in in-home childcare · Device sharing in collectivist immigrant households · Privacy and security of online second-hand shopping in Germany</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">16:15</div>
+          <div><span style="font-weight:600">Keynote</span></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">17:30</div>
+          <div><span style="font-weight:600">Poster session</span></div>
+        </div>
+        <div style="margin:18px 0 0;padding:13px 15px;background:var(--color-accent-2-100);border-radius:var(--radius-md)">
+          <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:4px">Free evening</div>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:var(--color-accent-2-700)">Once the posters wind down the evening is yours. The three pubs within five minutes of the building are the path of least resistance.</p>
+          <button onClick="{{ goExplore }}" style="appearance:none;background:none;border:0;padding:10px 0 0;margin:0;font:inherit;font-size:14px;font-weight:600;color:var(--color-accent-2-700);cursor:pointer;text-decoration:underline;text-underline-offset:3px;min-height:44px">Find something to do →</button>
+        </div>
+      </div>
+
+      <div style="margin:38px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700)">Tuesday</div>
+        <h3 style="font-size:23px;margin:3px 0 0">25 August · Day 2</h3>
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:14px 14px;margin-top:16px;font-size:14.5px;line-height:1.5">
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">9:00</div>
+          <div><span style="font-weight:600">Privacy Notices, Permissions &amp; Labels</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">How effective are privacy labels? · Users' awareness of different Android permission types · Nudging developers toward privacy with personalised app review reports</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">10:00</div>
+          <div>Lightning talks</div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">—</div>
+          <div style="color:var(--color-neutral-700)">Break</div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">11:15</div>
+          <div><span style="font-weight:600">Security Operations &amp; Practitioners</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">LLM use and adoption in cybersecurity operations on Reddit · Emerging AI practices and the cybersecurity workforce · How AI coding assistants transform developers' security awareness · DNS resolver security through operator perspectives</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">12:30</div>
+          <div>In-person speed mentoring / lunch</div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">14:00</div>
+          <div><span style="font-weight:600">Phishing &amp; Social Engineering</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">Emotional and behavioural responses during phishing attacks · Social anxiety and social-engineering resilience · Risk perception and scam response among university students · Digital scams post-incarceration in the US</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">15:15</div>
+          <div style="color:var(--color-neutral-700)">Break</div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">15:45</div>
+          <div><span style="font-weight:600">At-Risk &amp; Vulnerable Users</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">Hidden device detectors for intimate partner surveillance · Online labor abuse disclosures · Privacy risks in instant messaging for blind and low-vision users · TikTok as support for cyberbullying victims · Reproductive security advice on TikTok after Roe</div></div>
+        </div>
+        <div style="margin:18px 0 0;padding:13px 15px;background:var(--color-accent-2-100);border-radius:var(--radius-md)">
+          <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-2-700);margin-bottom:4px">Free evening
+</div>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:var(--color-accent-2-700)">The whole evening is open. This is the one to spend somewhere with a view of water — Strandleben if it is dry, the Maschsee shore if you want to walk first.</p>
+          <button onClick="{{ goExplore }}" style="appearance:none;background:none;border:0;padding:10px 0 0;margin:0;font:inherit;font-size:14px;font-weight:600;color:var(--color-accent-2-700);cursor:pointer;text-decoration:underline;text-underline-offset:3px;min-height:44px">Find something to do →</button>
+        </div>
+      </div>
+
+      <div style="margin:38px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700)">Wednesday</div>
+        <h3 style="font-size:23px;margin:3px 0 0">26 August · Day 3</h3>
+        <div style="display:grid;grid-template-columns:56px 1fr;gap:14px 14px;margin-top:16px;font-size:14.5px;line-height:1.5">
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">9:00</div>
+          <div><span style="font-weight:600">Usable Security Mechanisms &amp; Emerging Threats</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">IdentitySign: signing documents with an identity wallet · Virtual-physical discrimination vulnerability in mixed reality · AI-generated versus human-written penetration testing reports</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">10:00</div>
+          <div>Lightning talks</div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">—</div>
+          <div style="color:var(--color-neutral-700)">Break</div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">11:15</div>
+          <div><span style="font-weight:600">Scams, Fraud &amp; Misinformation</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">Characterising user-reported scams on TikTok · Source-level disengagement as a defence against misinformation · Detecting and mitigating LLM use by survey respondents · SoK: mapping threats to defenses in online survey fraud</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">12:30</div>
+          <div>In-person speed mentoring / lunch<div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:2px">Town hall starts at 13:30.</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">14:00</div>
+          <div><span style="font-weight:600">GenAI Privacy &amp; Risks</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">A privacy threat modeling framework for GenAI · Transparency needs for consumer-facing generative AI · Attitudes and anticipated harms of consensual after-death voice cloning</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">15:00</div>
+          <div style="color:var(--color-neutral-700)">Break, 45 minutes</div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">15:45</div>
+          <div><span style="font-weight:600">Security Advice &amp; Education</span><div style="color:var(--color-neutral-700);font-size:13.5px;margin-top:4px;line-height:1.5">Who can actually follow IT-security advice? · CyQured: a tabletop game for personal cybersecurity education · Co-designing community-centred safety education with librarians · Security versus productivity in email management</div></div>
+          <div style="font-variant-numeric:tabular-nums;color:var(--color-neutral-700)">17:00</div>
+          <div><span style="font-weight:600">Closing and poster awards</span></div>
+        </div>
+      </div>
+
+      <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:30px 0 0;font-style:italic;text-wrap:pretty">Paper titles are shortened here to fit a phone. The full titles, authors and rooms live on the conference site.</p>
+    </div>
+
+    <!-- ═══ INFO ═══ -->
+    <div hidden="{{ notInfo }}">
+      <h2 style="font-size:26px;margin:22px 0 0">The practical stuff</h2>
+
+      <div style="margin:26px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:8px">Venue</div>
+        <div style="font-size:19px;font-family:var(--font-heading);font-weight:600;line-height:1.25">Leibniz University Hannover</div>
+        <p style="font-size:15px;line-height:1.6;margin:6px 0 0">Welfengarten 1, 30167 Hannover — the Welfenschloss, the main building with the lion out front. Stadtbahn stop <span style="font-style:italic">Universität</span>, lines 4 and 5, is directly outside.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Welfengarten%201%2C%2030167%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions to the venue</a>
+        </div>
+      </div>
+
+      <div style="margin:34px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:8px">In an emergency</div>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:9px 16px;font-size:15px;line-height:1.5">
+          <div style="font-weight:600;font-variant-numeric:tabular-nums"><a href="tel:112">112</a></div><div>Ambulance and fire — free from any phone, any network, no SIM needed.</div>
+          <div style="font-weight:600;font-variant-numeric:tabular-nums"><a href="tel:110">110</a></div><div>Police.</div>
+          <div style="font-weight:600;font-variant-numeric:tabular-nums"><a href="tel:116117">116 117</a></div><div>Out-of-hours medical advice, for things that are not emergencies.</div>
+          <div style="font-weight:600;font-variant-numeric:tabular-nums">22 8 33</div><div>Taxi Hannover — dial <a href="tel:+4951122833">+49 511 22833</a>.</div>
+        </div>
+        <p style="font-size:14px;line-height:1.6;margin:12px 0 0;color:var(--color-neutral-700)">Pharmacies rotate a night-and-weekend duty roster; the nearest open one is listed in the window of any closed <span style="font-style:italic">Apotheke</span>. Note that most shops and supermarkets close on Sundays.</p>
+      </div>
+
+      <div style="margin:34px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:8px">Wifi</div>
+        <p style="font-size:15px;line-height:1.6;margin:0"><span style="font-weight:600">eduroam</span> covers the campus — set it up at your home institution before you travel and it will simply connect. If you have no eduroam account, ask at the registration desk.</p>
+      </div>
+
+      <div style="margin:34px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:8px">Getting around town</div>
+        <p style="font-size:15px;line-height:1.6;margin:0">Twelve Stadtbahn lines run through the two central hubs, <span style="font-style:italic">Kröpcke</span> and <span style="font-style:italic">Hauptbahnhof</span>, frequently and step-free. Buses fill the gaps, and the SprintH express lines reach the wider region. The whole city sits inside GVH tariff <span style="font-weight:600">zone A</span>, so one zone-A ticket covers anything in this guide. If you already hold a Deutschlandticket, it is valid here.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn btn-secondary" href="https://www.uestra.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">ÜSTRA timetables ↗</a>
+          <a class="btn btn-secondary" href="https://www.gvh.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">GVH tickets ↗</a>
+        </div>
+        <p style="font-size:15px;line-height:1.6;margin:18px 0 0">Hannover is flat and genuinely built for cycling: wide, often red-paved lanes beside the main roads, and twelve signposted velo-routes running star-fashion into the centre away from car traffic. Guarded bike parking with repair services sits at the main station. E-scooters and e-bikes (Tier/Dott, Lime, Bolt) are free-floating across the city, and stadtmobil car-sharing has stations everywhere; Uber and Bolt both operate.</p>
+      </div>
+
+      <div style="margin:34px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:8px">Arriving</div>
+        <p style="font-size:15px;line-height:1.6;margin:0">Hannover Airport is about 25 minutes from the centre by S-Bahn, every half hour. From the Hauptbahnhof the venue is 2 km — one tram ride or a 25-minute walk. Coming from outside Europe, Frankfurt often has better connections: switch to a direct ICE at the airport's long-distance station.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn btn-secondary" href="https://soups.page/2026/travel.html" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Travel &amp; hotels ↗</a>
+        </div>
+      </div>
+
+      <div style="margin:34px 0 0">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:8px">Ask us anything</div>
+        <p style="font-size:15px;line-height:1.6;margin:0">The organising chairs read their mail: <a href="mailto:soups26chairs@googlegroups.com">soups26chairs@googlegroups.com</a>. Hotel coordination and room-sharing happen in the <span style="font-style:italic">#soups26hotels</span> channel on the SOUPS Slack.</p>
+      </div>
+
+      <div style="margin:34px 0 20px">
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:8px">About this guide</div>
+        <p style="font-size:14px;line-height:1.6;margin:0;color:var(--color-neutral-700);text-wrap:pretty">Put together by the SOUPS 2026 organising team as a companion to the programme. It runs entirely on your phone — your saved places never leave the device, and there is no tracking of any kind. Fitting, really.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <nav style="position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;z-index:40;background:var(--color-bg);padding-bottom:env(safe-area-inset-bottom)">
+    <div style="height:1px;background:var(--color-divider)"></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+      <button onClick="{{ goExplore }}" style="appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-height:58px">
+        <div style="height:2px;width:100%;background: {{ tabRuleExplore }}"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;color: {{ tabFgExplore }}">
+          <i class="ph-duotone ph-compass" style="font-size:22px;line-height:1"></i>
+          <span style="font-size:11px;letter-spacing:.06em">Explore</span>
+        </div>
+      </button>
+      <button onClick="{{ goMap }}" style="appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-height:58px">
+        <div style="height:2px;width:100%;background: {{ tabRuleMap }}"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;color: {{ tabFgMap }}">
+          <i class="ph-duotone ph-map-trifold" style="font-size:22px;line-height:1"></i>
+          <span style="font-size:11px;letter-spacing:.06em">Map</span>
+        </div>
+      </button>
+      <button onClick="{{ goProgram }}" style="appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-height:58px">
+        <div style="height:2px;width:100%;background: {{ tabRuleProgram }}"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;color: {{ tabFgProgram }}">
+          <i class="ph-duotone ph-calendar-dots" style="font-size:22px;line-height:1"></i>
+          <span style="font-size:11px;letter-spacing:.06em">Programme</span>
+        </div>
+      </button>
+      <button onClick="{{ goInfo }}" style="appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-height:58px">
+        <div style="height:2px;width:100%;background: {{ tabRuleInfo }}"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;color: {{ tabFgInfo }}">
+          <i class="ph-duotone ph-info" style="font-size:22px;line-height:1"></i>
+          <span style="font-size:11px;letter-spacing:.06em">Info</span>
+        </div>
+      </button>
+    </div>
+  </nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showPhotos&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Feed&quot;,&quot;label&quot;:&quot;Show photos in the feed&quot;},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;explore&quot;,&quot;map&quot;,&quot;program&quot;,&quot;info&quot;],&quot;default&quot;:&quot;explore&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Feed&quot;,&quot;label&quot;:&quot;Tab shown on first open&quot;}}">
+class Component extends DCLogic {
+  places = [
+    { id: 'herrenhausen', cat: 'nature', tags: ['outdoor'], walk: 26 },
+    { id: 'sealife',      cat: 'nature', tags: ['indoor'], walk: 24 },
+    { id: 'maschsee',     cat: 'nature', tags: ['outdoor', 'free'], walk: 40 },
+    { id: 'eilenriede',   cat: 'nature', tags: ['outdoor', 'free'], walk: 30 },
+    { id: 'zoo',          cat: 'nature', tags: ['outdoor'], walk: 38 },
+    { id: 'beta',         cat: 'sport',  tags: ['indoor'], walk: 8 },
+    { id: 'leinewelle',   cat: 'sport',  tags: ['outdoor', 'free', 'book'], walk: 18 },
+    { id: 'neongolf',     cat: 'sport',  tags: ['indoor', 'book'], walk: 15 },
+    { id: 'jumpone',      cat: 'sport',  tags: ['indoor'], walk: 16 },
+    { id: 'hiscore',      cat: 'sport',  tags: ['indoor', 'book'], walk: 48 },
+    { id: 'extrakt',      cat: 'food',   tags: ['indoor'], walk: 3 },
+    { id: 'destille',     cat: 'food',   tags: ['indoor'], walk: 3 },
+    { id: 'santana',      cat: 'food',   tags: ['indoor'], walk: 4 },
+    { id: 'strandleben',  cat: 'food',   tags: ['outdoor'], walk: 17 },
+    { id: 'waterloo',     cat: 'food',   tags: ['outdoor'], walk: 24 },
+    { id: 'bavarium',     cat: 'food',   tags: ['indoor'], walk: 24 },
+    { id: 'cheers',       cat: 'food',   tags: ['indoor'], walk: 17 }
+  ];
+
+  load(key, fallback) {
+    try {
+      const raw = localStorage.getItem('soups26.' + key);
+      return raw === null ? fallback : JSON.parse(raw);
+    } catch (e) { return fallback; }
+  }
+
+  save(key, value) {
+    try { localStorage.setItem('soups26.' + key, JSON.stringify(value)); } catch (e) {}
+  }
+
+  state = {
+    tab: this.load('tab', null) || this.props.startTab || 'explore',
+    cat: 'all',
+    tags: {},
+    open: {},
+    saved: this.load('saved', {}) || {},
+    bannerOff: this.load('bannerOff', false),
+    prompt: null,
+    standalone: false
+  };
+
+  componentDidMount() {
+    try {
+      const mq = matchMedia('(display-mode: standalone)');
+      if (mq.matches || navigator.standalone) this.setState({ standalone: true });
+    } catch (e) {}
+
+    this._onPrompt = (e) => { e.preventDefault(); this.setState({ prompt: e }); };
+    addEventListener('beforeinstallprompt', this._onPrompt);
+
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+  }
+
+  componentWillUnmount() {
+    removeEventListener('beforeinstallprompt', this._onPrompt);
+  }
+
+  setTab(tab) {
+    this.save('tab', tab);
+    this.setState({ tab });
+    try { scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
+  }
+
+  toggleTag(tag) {
+    this.setState((s) => {
+      const tags = Object.assign({}, s.tags);
+      if (tags[tag]) delete tags[tag]; else tags[tag] = true;
+      return { tags };
+    });
+  }
+
+  toggleSave(id) {
+    this.setState((s) => {
+      const saved = Object.assign({}, s.saved);
+      if (saved[id]) delete saved[id]; else saved[id] = true;
+      this.save('saved', saved);
+      return { saved };
+    });
+  }
+
+  toggleOpen(id) {
+    this.setState((s) => {
+      const open = Object.assign({}, s.open);
+      if (open[id]) delete open[id]; else open[id] = true;
+      return { open };
+    });
+  }
+
+  matches(p) {
+    const s = this.state;
+    if (s.cat !== 'all' && p.cat !== s.cat) return false;
+    const t = s.tags;
+    if (t.saved && !s.saved[p.id]) return false;
+    if (t.free && p.tags.indexOf('free') < 0) return false;
+    if (t.book && p.tags.indexOf('book') < 0) return false;
+    if (t.indoor && p.tags.indexOf('indoor') < 0) return false;
+    if (t.outdoor && p.tags.indexOf('outdoor') < 0) return false;
+    if (t.walk && p.walk > 20) return false;
+    return true;
+  }
+
+  chip(active) {
+    return {
+      bg: active ? 'var(--color-accent)' : 'transparent',
+      fg: active ? 'var(--color-bg)' : 'var(--color-text)',
+      bd: active ? 'var(--color-accent)' : 'var(--color-divider)'
+    };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const visible = this.places.filter((p) => this.matches(p));
+    const n = visible.length;
+    const savedN = Object.keys(s.saved).length;
+    const anyFilter = s.cat !== 'all' || Object.keys(s.tags).length > 0;
+
+    const out = {
+      notExplore: s.tab !== 'explore',
+      notMap: s.tab !== 'map',
+      notProgram: s.tab !== 'program',
+      notInfo: s.tab !== 'info',
+
+      goExplore: () => this.setTab('explore'),
+      goMap: () => this.setTab('map'),
+      goProgram: () => this.setTab('program'),
+      goInfo: () => this.setTab('info'),
+
+      resultLine: n === 0 ? 'No places' : (n === 1 ? '1 place' : n + ' places'),
+      hasResults: n > 0,
+      noFilters: !anyFilter,
+      clearFilters: () => this.setState({ cat: 'all', tags: {} }),
+      savedCount: savedN ? '(' + savedN + ')' : '',
+      noPhotos: this.props.showPhotos === false,
+
+      bannerHidden: s.bannerOff === true || s.standalone === true,
+      dismissBanner: () => { this.save('bannerOff', true); this.setState({ bannerOff: true }); },
+      noPrompt: !s.prompt,
+      hasPrompt: !!s.prompt,
+      doInstall: () => {
+        const p = s.prompt;
+        if (!p) return;
+        p.prompt();
+        this.setState({ prompt: null });
+      },
+
+      catAll: () => this.setState({ cat: 'all' }),
+      catNature: () => this.setState({ cat: 'nature' }),
+      catSport: () => this.setState({ cat: 'sport' }),
+      catFood: () => this.setState({ cat: 'food' }),
+
+      tagFree: () => this.toggleTag('free'),
+      tagWalk: () => this.toggleTag('walk'),
+      tagIndoor: () => this.toggleTag('indoor'),
+      tagOutdoor: () => this.toggleTag('outdoor'),
+      tagBook: () => this.toggleTag('book'),
+      tagSaved: () => this.toggleTag('saved'),
+
+      hHeadNature: !visible.some((p) => p.cat === 'nature'),
+      hHeadSport: !visible.some((p) => p.cat === 'sport'),
+      hHeadFood: !visible.some((p) => p.cat === 'food')
+    };
+
+    const cats = { All: s.cat === 'all', Nature: s.cat === 'nature', Sport: s.cat === 'sport', Food: s.cat === 'food' };
+    Object.keys(cats).forEach((k) => {
+      const c = this.chip(cats[k]);
+      out['bgCat' + k] = c.bg; out['fgCat' + k] = c.fg; out['bdCat' + k] = c.bd;
+    });
+
+    const tagKeys = { Free: 'free', Walk: 'walk', Indoor: 'indoor', Outdoor: 'outdoor', Book: 'book', Saved: 'saved' };
+    Object.keys(tagKeys).forEach((k) => {
+      const c = this.chip(!!s.tags[tagKeys[k]]);
+      out['bgTag' + k] = c.bg; out['fgTag' + k] = c.fg; out['bdTag' + k] = c.bd;
+    });
+
+    const tabs = { Explore: 'explore', Map: 'map', Program: 'program', Info: 'info' };
+    Object.keys(tabs).forEach((k) => {
+      const on = s.tab === tabs[k];
+      out['tabFg' + k] = on ? 'var(--color-accent-700)' : 'var(--color-neutral-700)';
+      out['tabRule' + k] = on ? 'var(--color-accent)' : 'transparent';
+    });
+
+    this.places.forEach((p) => {
+      out['h_' + p.id] = !this.matches(p);
+      out['x_' + p.id] = !s.open[p.id];
+      out['chev_' + p.id] = s.open[p.id] ? '▲' : '▼';
+      out['star_' + p.id] = s.saved[p.id] ? '★' : '☆';
+      out['t_' + p.id] = () => this.toggleOpen(p.id);
+      out['s_' + p.id] = () => this.toggleSave(p.id);
+    });
+
+    return out;
+  }
+}
+
+</script>
+</body>
+</html>
