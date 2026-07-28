@@ -1,6 +1,6 @@
 /* SOUPS 2026 Hannover Guide — offline service worker.
    Cache-first for the app shell, network-first (with cache fallback) for map tiles. */
-const VERSION = 'soups26-guide-v12';
+const VERSION = 'soups26-guide-v13';
 const SHELL = [
   './',
   './index.html',
@@ -11,6 +11,8 @@ const SHELL = [
   './icons/icon-192.png',
   './icons/icon-512.png',
   './images/welfenschloss.webp',
+  './images/sponsor-hannoverimpuls.webp',
+  './images/sponsor-cispa.webp',
   './_ds/broadsheet-f75e36a9-287e-4ae1-8947-5158a447224a/styles.css',
   './_ds/broadsheet-f75e36a9-287e-4ae1-8947-5158a447224a/_ds_bundle.js'
 ];
