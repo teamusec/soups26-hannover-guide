@@ -947,6 +947,10 @@ class Component extends DCLogic {
     try { scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
   }
 
+  toggleCat(cat) {
+    this.setState((s) => ({ cat: s.cat === cat ? 'all' : cat }));
+  }
+
   toggleTag(tag) {
     this.setState((s) => {
       const tags = Object.assign({}, s.tags);
@@ -1029,9 +1033,9 @@ class Component extends DCLogic {
         this.setState({ prompt: null });
       },
 
-      catNature: () => this.setState({ cat: 'nature' }),
-      catSport: () => this.setState({ cat: 'sport' }),
-      catFood: () => this.setState({ cat: 'food' }),
+      catNature: () => this.toggleCat('nature'),
+      catSport: () => this.toggleCat('sport'),
+      catFood: () => this.toggleCat('food'),
 
       tagFree: () => this.toggleTag('free'),
       tagWalk: () => this.toggleTag('walk'),
