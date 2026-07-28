@@ -36,25 +36,27 @@ const CAT = {
   sport:  { color: '#006786', label: 'Sports & action' },
   food:   { color: '#edbb00', label: 'Dining & bars' }
 };
+// Tuple order: [cat, name, addr, meta, lat, lon, id] — id is the join key to
+// the host app's `places` slugs (index.html), used for filter sync.
 const PLACES = [
-  ['venue','Leibniz University Hannover','Welfengarten 1, 30167 Hannover','SOUPS 2026 · Welfenschloss',52.38269,9.71818],
-  ['nature','Herrenhausen Gardens','Herrenhäuser Str. 4, 30419 Hannover','~1.7 km · 10 min by tram 4/5',52.39080,9.69770],
-  ['nature','SEA LIFE Hannover','Herrenhäuser Str. 4a, 30419 Hannover','~1.7 km · 10 min by tram 4/5',52.39265,9.69900],
-  ['nature','Maschsee','Rudolf-von-Bennigsen-Ufer, 30169 Hannover','~2.8 km · 15 min by tram',52.36090,9.74000],
-  ['nature','Erlebnis-Zoo Hannover','Adenauerallee 3, 30175 Hannover','~3.6 km · 20 min by tram + bus',52.38107,9.77074],
-  ['nature','Eilenriede — Waldstation','Kleestraße 81, 30625 Hannover','Forest edge ~2 km · Waldstation ~4.9 km',52.38990,9.78888],
-  ['sport','Beta Boulderhalle','Gertrud-Knebusch-Str. 15, 30167 Hannover','~900 m · 12 min walk',52.38510,9.73120],
-  ['sport','NeonGolf Hannover','Heiligerstraße 15-16, 30159 Hannover','~1.5 km · 19 min walk',52.37440,9.73551],
-  ['sport','Leine-Welle','Schloßstraße, 30159 Hannover','~1.5 km · 20 min walk',52.37130,9.73128],
-  ['sport','Jump One Hannover','Weidendamm 2, 30167 Hannover','~1.0 km · 13 min walk',52.38469,9.73226],
-  ['sport','HI-Score','Anna-Zammert-Straße 28, 30171 Hannover','~3.8 km · 20 min by tram · Fri–Sun only',52.36429,9.76371],
-  ['food','Bavarium Hannover','Windmühlenstraße 6, 30159 Hannover','~1.9 km · 10 min by tram',52.37201,9.73955],
-  ['food','Waterloo Biergarten','Waterloostraße 1, 30169 Hannover','~1.9 km · 24 min walk',52.36826,9.73179],
-  ['food','Strandleben','Weddigenufer 25, 30167 Hannover','~700 m · 9 min walk',52.37722,9.71311],
-  ['food','Extrakt','Hahnenstraße 3, 30167 Hannover','~450 m · 6 min walk',52.38663,9.71988],
-  ['food','Destille','Im Moore 3, 30167 Hannover','~240 m · 3 min walk',52.38251,9.72163],
-  ['food','Santana Cocktailbar','Rehbockstraße 38A, 30167 Hannover','~400 m · 5 min walk',52.38636,9.71708],
-  ['food','Cheers Hannover','Goseriede 4, 30159 Hannover','~1.1 km · 15 min walk',52.37737,9.73270]
+  ['venue','Leibniz University Hannover','Welfengarten 1, 30167 Hannover','SOUPS 2026 · Welfenschloss',52.38269,9.71818,'venue'],
+  ['nature','Herrenhausen Gardens','Herrenhäuser Str. 4, 30419 Hannover','~1.7 km · 10 min by tram 4/5',52.39080,9.69770,'herrenhausen'],
+  ['nature','SEA LIFE Hannover','Herrenhäuser Str. 4a, 30419 Hannover','~1.7 km · 10 min by tram 4/5',52.39265,9.69900,'sealife'],
+  ['nature','Maschsee','Rudolf-von-Bennigsen-Ufer, 30169 Hannover','~2.8 km · 15 min by tram',52.36090,9.74000,'maschsee'],
+  ['nature','Erlebnis-Zoo Hannover','Adenauerallee 3, 30175 Hannover','~3.6 km · 20 min by tram + bus',52.38107,9.77074,'zoo'],
+  ['nature','Eilenriede — Waldstation','Kleestraße 81, 30625 Hannover','Forest edge ~2 km · Waldstation ~4.9 km',52.38990,9.78888,'eilenriede'],
+  ['sport','Beta Boulderhalle','Gertrud-Knebusch-Str. 15, 30167 Hannover','~900 m · 12 min walk',52.38510,9.73120,'beta'],
+  ['sport','NeonGolf Hannover','Heiligerstraße 15-16, 30159 Hannover','~1.5 km · 19 min walk',52.37440,9.73551,'neongolf'],
+  ['sport','Leine-Welle','Schloßstraße, 30159 Hannover','~1.5 km · 20 min walk',52.37130,9.73128,'leinewelle'],
+  ['sport','Jump One Hannover','Weidendamm 2, 30167 Hannover','~1.0 km · 13 min walk',52.38469,9.73226,'jumpone'],
+  ['sport','HI-Score','Anna-Zammert-Straße 28, 30171 Hannover','~3.8 km · 20 min by tram · Fri–Sun only',52.36429,9.76371,'hiscore'],
+  ['food','Bavarium Hannover','Windmühlenstraße 6, 30159 Hannover','~1.9 km · 10 min by tram',52.37201,9.73955,'bavarium'],
+  ['food','Waterloo Biergarten','Waterloostraße 1, 30169 Hannover','~1.9 km · 24 min walk',52.36826,9.73179,'waterloo'],
+  ['food','Strandleben','Weddigenufer 25, 30167 Hannover','~700 m · 9 min walk',52.37722,9.71311,'strandleben'],
+  ['food','Extrakt','Hahnenstraße 3, 30167 Hannover','~450 m · 6 min walk',52.38663,9.71988,'extrakt'],
+  ['food','Destille','Im Moore 3, 30167 Hannover','~240 m · 3 min walk',52.38251,9.72163,'destille'],
+  ['food','Santana Cocktailbar','Rehbockstraße 38A, 30167 Hannover','~400 m · 5 min walk',52.38636,9.71708,'santana'],
+  ['food','Cheers Hannover','Goseriede 4, 30159 Hannover','~1.1 km · 15 min walk',52.37737,9.73270,'cheers']
 ];
 
 const map = L.map('map', { center: VENUE, zoom: 14, zoomControl: true, scrollWheelZoom: true });
@@ -63,7 +65,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const group = [];
-PLACES.forEach(([cat, name, addr, meta, lat, lon]) => {
+const markers = {};
+PLACES.forEach(([cat, name, addr, meta, lat, lon, id]) => {
   const isVenue = cat === 'venue';
   const d = isVenue ? 22 : 15;
   const icon = L.divIcon({
@@ -81,6 +84,7 @@ PLACES.forEach(([cat, name, addr, meta, lat, lon]) => {
     '<a class="pa" href="' + dir + '" target="_blank" rel="noopener">Directions ↗</a>'
   );
   m.bindTooltip(name, { direction: 'right', offset: [10, 0], opacity: 0.95 });
+  markers[id] = m;
   group.push([lat, lon]);
 });
 
@@ -95,13 +99,35 @@ legend.onAdd = () => {
 };
 legend.addTo(map);
 
-// Let the host app ask the map to focus one place.
+// filterSet is the set of place ids to show (null = show everything).
+let filterSet = null;
+function applyFilter() {
+  PLACES.forEach(([cat, , , , , , id]) => {
+    const m = markers[id];
+    if (!m) return;
+    const show = cat === 'venue' || !filterSet || filterSet.has(id);
+    if (show) { if (!map.hasLayer(m)) m.addTo(map); }
+    else if (map.hasLayer(m)) map.removeLayer(m);
+  });
+}
+
+// Host messages: focus one place, or sync the global filter's visible set.
 addEventListener('message', (e) => {
-  const name = e.data && e.data.focus;
-  if (!name) return;
-  const p = PLACES.find((x) => x[1] === name);
-  if (p) map.setView([p[4], p[5]], 16, { animate: true });
+  const d = e.data;
+  if (!d) return;
+  if (d.focus) {
+    const p = PLACES.find((x) => x[1] === d.focus);
+    if (p) map.setView([p[4], p[5]], 16, { animate: true });
+  }
+  if (Array.isArray(d.filter)) {
+    filterSet = new Set(d.filter);
+    applyFilter();
+  }
 });
+
+// Tell the host we're ready so it can push the current filter into a freshly
+// (lazily) loaded iframe.
+try { parent.postMessage({ mapReady: true }, '*'); } catch (e) {}
 </script>
 </body>
 </html>
