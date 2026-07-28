@@ -69,7 +69,6 @@
       <div style="margin:28px 0 0">
         <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:9px">Browse</div>
         <div style="display:flex;flex-wrap:wrap;gap:7px">
-          <button onClick="{{ catAll }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatAll }}; color: {{ fgCatAll }}; border-color: {{ bdCatAll }}">Everything</button>
           <button onClick="{{ catNature }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatNature }}; color: {{ fgCatNature }}; border-color: {{ bdCatNature }}">Nature</button>
           <button onClick="{{ catSport }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatSport }}; color: {{ fgCatSport }}; border-color: {{ bdCatSport }}">Sports &amp; action</button>
           <button onClick="{{ catFood }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatFood }}; color: {{ fgCatFood }}; border-color: {{ bdCatFood }}">Food &amp; drink</button>
@@ -986,7 +985,6 @@ class Component extends DCLogic {
         this.setState({ prompt: null });
       },
 
-      catAll: () => this.setState({ cat: 'all' }),
       catNature: () => this.setState({ cat: 'nature' }),
       catSport: () => this.setState({ cat: 'sport' }),
       catFood: () => this.setState({ cat: 'food' }),
@@ -1003,7 +1001,7 @@ class Component extends DCLogic {
       hHeadFood: !visible.some((p) => p.cat === 'food')
     };
 
-    const cats = { All: s.cat === 'all', Nature: s.cat === 'nature', Sport: s.cat === 'sport', Food: s.cat === 'food' };
+    const cats = { Nature: s.cat === 'nature', Sport: s.cat === 'sport', Food: s.cat === 'food' };
     Object.keys(cats).forEach((k) => {
       const c = this.chip(cats[k]);
       out['bgCat' + k] = c.bg; out['fgCat' + k] = c.fg; out['bdCat' + k] = c.bd;
