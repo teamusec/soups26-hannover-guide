@@ -625,8 +625,39 @@
         <button onClick="{{ t_edamm }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_edamm }}</span></button>
       </article>
 
+      <article hidden="{{ h_francesca }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-francesca" shape="rect" radius="2" fit="cover" placeholder="Francesca &amp; Fratelli — a pizza coming out of the oven"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Pizza · Casual · Five branches</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Francesca &amp; Fratelli</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.7 km · 21 min walk</div>
+          </div>
+          <button onClick="{{ s_francesca }}" aria-label="Save Francesca &amp; Fratelli" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_francesca }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Pizza chain in Hannover, serving really good Italian pizza. They have five different locations.</p>
+        <div hidden="{{ x_francesca }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Tram toward the center, then a short walk into the old town. Seilwinderstraße 2, 30159 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>Dinner with a group; something everyone will eat without a discussion.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>This is the Altstadt branch, a few steps from the Marktkirche. Opening hours differ between branches — check before you set off.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Seilwinderstra%C3%9Fe%202%2C%2030159%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.francesca-fratelli.de/pizzamanufaktur-in-hannover/altstadt/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_francesca }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_francesca }}</span></button>
+      </article>
+
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Opening hours, prices and bookings change. Everything here was read off each venue's own site while we put the guide together — tap through before you cross town.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">E-Damm photo by <a href="https://commons.wikimedia.org/wiki/User:Bernd_Schwabe_in_Hannover" target="_blank" rel="noopener" style="color:inherit">Bernd Schwabe in Hannover</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a>.</p>
+      <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Pizza photo by <a href="https://commons.wikimedia.org/wiki/File:Pizza_Napoletana_Contemporanea.jpg" target="_blank" rel="noopener" style="color:inherit">CDibisceglia</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a>. It shows a Neapolitan pizza, not the restaurant itself.</p>
 
     </div>
 
@@ -896,7 +927,8 @@ class Component extends DCLogic {
     { id: 'strandleben',  cat: 'food',   tags: ['outdoor'], walk: 9 },
     { id: 'waterloo',     cat: 'food',   tags: ['outdoor'], walk: 24 },
     { id: 'bavarium',     cat: 'food',   tags: ['indoor'], walk: 24 },
-    { id: 'edamm',        cat: 'food',   tags: ['indoor', 'outdoor'], walk: 11 }
+    { id: 'edamm',        cat: 'food',   tags: ['indoor', 'outdoor'], walk: 11 },
+    { id: 'francesca',    cat: 'food',   tags: ['indoor'], walk: 21 }
   ];
 
   load(key, fallback) {
