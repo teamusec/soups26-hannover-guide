@@ -34,7 +34,8 @@ const CAT = {
   venue:  { color: '#d6006c', label: 'Conference venue' },
   nature: { color: '#0088b0', label: 'Nature & wildlife' },
   sport:  { color: '#006786', label: 'Sports & action' },
-  food:   { color: '#edbb00', label: 'Dining & bars' }
+  food:   { color: '#edbb00', label: 'Dining & bars' },
+  sights: { color: '#790e3d', label: 'Sights & landmarks' }
 };
 // Tuple order: [cat, name, addr, meta, lat, lon, id] — id is the join key to
 // the host app's `places` slugs (index.html), used for filter sync.
@@ -60,7 +61,8 @@ const PLACES = [
   ['food','E-Damm','Engelbosteler Damm, 30167 Hannover','~800 m · 11 min walk',52.38745,9.72310,'edamm'],
   ['food','Francesca & Fratelli','Seilwinderstraße 2, 30159 Hannover','~1.7 km · 21 min walk',52.37241,9.73613,'francesca'],
   ['food','Kaisers','Schaufelder Straße 27, 30167 Hannover','~650 m · 8 min walk',52.38844,9.71647,'kaisers'],
-  ['food','Spätzlehaus','Hegebläch 33, 30419 Hannover','~2.4 km · 12 min by tram 4/5',52.39608,9.69140,'spaetzlehaus']
+  ['food','Spätzlehaus','Hegebläch 33, 30419 Hannover','~2.4 km · 12 min by tram 4/5',52.39608,9.69140,'spaetzlehaus'],
+  ['sights','Neues Rathaus','Trammplatz 2, 30159 Hannover','~2.2 km · 12 min by tram',52.36722,9.73735,'rathaus']
 ];
 
 const map = L.map('map', { center: VENUE, zoom: 14, zoomControl: true, scrollWheelZoom: true });

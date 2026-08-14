@@ -72,6 +72,7 @@
           <button onClick="{{ catNature }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatNature }}; color: {{ fgCatNature }}; border-color: {{ bdCatNature }}">Nature</button>
           <button onClick="{{ catSport }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatSport }}; color: {{ fgCatSport }}; border-color: {{ bdCatSport }}">Sports &amp; action</button>
           <button onClick="{{ catFood }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatFood }}; color: {{ fgCatFood }}; border-color: {{ bdCatFood }}">Food &amp; drink</button>
+          <button onClick="{{ catSights }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatSights }}; color: {{ fgCatSights }}; border-color: {{ bdCatSights }}">Sights</button>
         </div>
       </div>
 
@@ -746,11 +747,47 @@
         <button onClick="{{ t_spaetzlehaus }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_spaetzlehaus }}</span></button>
       </article>
 
+      <div hidden="{{ hHeadSights }}" style="margin:8px 0 26px">
+        <h2 style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin:0">Sights</h2>
+        <p style="font-size:14px;color:var(--color-neutral-700);margin:9px 0 0;line-height:1.55;text-wrap:pretty">Landmarks worth the detour, and mostly free to walk into.</p>
+      </div>
+
+      <article hidden="{{ h_rathaus }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-rathaus" shape="rect" radius="2" fit="cover" placeholder="Neues Rathaus — the front facade and green dome across the Maschteich"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Landmark · Free lobby · Dome lift</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Neues Rathaus</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~2.2 km · 12 min by tram</div>
+          </div>
+          <button onClick="{{ s_rathaus }}" aria-label="Save Neues Rathaus" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_rathaus }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Hannover's town hall. You can freely enter the lobby during the opening hours and explore the four city models showcasing Hannover as it has changed over the centuries. For a few euros, you can also take the curved dome lift and get great panoramic views of Hannover.</p>
+        <div hidden="{{ x_rathaus }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Tram toward the center, then a short walk through the Maschpark. Trammplatz 2, 30159 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>An hour between sessions; the view out over the city and the Maschsee; a wet afternoon.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>The lift climbs inside the dome along a curve rather than straight up. It keeps its own, shorter hours than the building — check them on the day.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Trammplatz%202%2C%2030159%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.visit-hannover.com/Kultur-Sehensw%C3%BCrdigkeiten/Sehensw%C3%BCrdigkeiten/Neues-Rathaus/Geschichte-des-Neuen-Rathauses-Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_rathaus }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_rathaus }}</span></button>
+      </article>
+
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Opening hours and prices might change. Check the location's website for the menu or recent announcements.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">E-Damm photo by <a href="https://commons.wikimedia.org/wiki/User:Bernd_Schwabe_in_Hannover" target="_blank" rel="noopener" style="color:inherit">Bernd Schwabe in Hannover</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a>.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Pizza photo by <a href="https://commons.wikimedia.org/wiki/File:Pizza_Napoletana_Contemporanea.jpg" target="_blank" rel="noopener" style="color:inherit">CDibisceglia</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a>. It shows a Neapolitan pizza, not the restaurant itself.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Kaisers photo by <a href="https://commons.wikimedia.org/wiki/User:Bernd_Schwabe_in_Hannover" target="_blank" rel="noopener" style="color:inherit">Bernd Schwabe in Hannover</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener" style="color:inherit">CC BY 3.0</a>.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Spätzlehaus photo by Gunther Falchner, via <a href="https://commons.wikimedia.org/wiki/File:%22Das_Sp%C3%A4tzlehaus%22_-_Hannover-Herrenhaus_Hegebl%C3%A4ch_33-Ecke_Palmstra%C3%9Fe_-_panoramio.jpg" target="_blank" rel="noopener" style="color:inherit">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 3.0</a>.</p>
+      <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Neues Rathaus photo by <a href="https://commons.wikimedia.org/wiki/File:Hannover_-_Rathaus_Maschteich.jpg" target="_blank" rel="noopener" style="color:inherit">Heidas</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 3.0</a>.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Berggarten photo by <a href="https://commons.wikimedia.org/wiki/File:Herrenhausen_Berggarten_2024-05-20zb.jpg" target="_blank" rel="noopener" style="color:inherit">Holbein66</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a>.</p>
 
     </div>
@@ -766,6 +803,7 @@
           <button onClick="{{ catNature }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatNature }}; color: {{ fgCatNature }}; border-color: {{ bdCatNature }}">Nature</button>
           <button onClick="{{ catSport }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatSport }}; color: {{ fgCatSport }}; border-color: {{ bdCatSport }}">Sports &amp; action</button>
           <button onClick="{{ catFood }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatFood }}; color: {{ fgCatFood }}; border-color: {{ bdCatFood }}">Food &amp; drink</button>
+          <button onClick="{{ catSights }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgCatSights }}; color: {{ fgCatSights }}; border-color: {{ bdCatSights }}">Sights</button>
         </div>
       </div>
 
@@ -1025,7 +1063,8 @@ class Component extends DCLogic {
     { id: 'edamm',        cat: 'food',   tags: ['indoor', 'outdoor'], walk: 11 },
     { id: 'francesca',    cat: 'food',   tags: ['indoor'], walk: 21 },
     { id: 'kaisers',      cat: 'food',   tags: ['indoor'], walk: 8 },
-    { id: 'spaetzlehaus', cat: 'food',   tags: ['indoor', 'outdoor', 'book'], walk: 30 }
+    { id: 'spaetzlehaus', cat: 'food',   tags: ['indoor', 'outdoor', 'book'], walk: 30 },
+    { id: 'rathaus',      cat: 'sights', tags: ['indoor', 'free'], walk: 27 }
   ];
 
   load(key, fallback) {
@@ -1180,6 +1219,7 @@ class Component extends DCLogic {
       catNature: () => this.toggleCat('nature'),
       catSport: () => this.toggleCat('sport'),
       catFood: () => this.toggleCat('food'),
+      catSights: () => this.toggleCat('sights'),
 
       tagFree: () => this.toggleTag('free'),
       tagWalk: () => this.toggleTag('walk'),
@@ -1190,10 +1230,11 @@ class Component extends DCLogic {
 
       hHeadNature: !visible.some((p) => p.cat === 'nature'),
       hHeadSport: !visible.some((p) => p.cat === 'sport'),
-      hHeadFood: !visible.some((p) => p.cat === 'food')
+      hHeadFood: !visible.some((p) => p.cat === 'food'),
+      hHeadSights: !visible.some((p) => p.cat === 'sights')
     };
 
-    const cats = { Nature: s.cat === 'nature', Sport: s.cat === 'sport', Food: s.cat === 'food' };
+    const cats = { Nature: s.cat === 'nature', Sport: s.cat === 'sport', Food: s.cat === 'food', Sights: s.cat === 'sights' };
     Object.keys(cats).forEach((k) => {
       const c = this.chip(cats[k]);
       out['bgCat' + k] = c.bg; out['fgCat' + k] = c.fg; out['bdCat' + k] = c.bd;
