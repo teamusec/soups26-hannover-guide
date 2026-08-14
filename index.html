@@ -134,6 +134,36 @@
         <button onClick="{{ t_herrenhausen }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_herrenhausen }}</span></button>
       </article>
 
+      <article hidden="{{ h_berggarten }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-berggarten" shape="rect" radius="2" fit="cover" placeholder="Berggarten — rhododendrons and ferns under the old trees"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Nature · Ticket · 1–2 h</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Berggarten</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.8 km · tram 4 or 5, 10 min</div>
+          </div>
+          <button onClick="{{ s_berggarten }}" aria-label="Save Berggarten" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_berggarten }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">Opposite the Herrenhausen Gardens and next to the SEA LIFE. Green spaces here are less formally laid out but just as beautiful, featuring many local or exotic plants. Here you will also find greenhouses, including the largest orchid exhibition in Europe. You can either get combined tickets for the Herrenhausen Gardens and the Berggarten or tickets for the Berggarten only.</p>
+        <div hidden="{{ x_berggarten }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Tram 4 or 5 from <span style="font-style:italic">Universität</span> to <span style="font-style:italic">Herrenhäuser Gärten</span>. The entrance is on the north side of the street, across from the Great Garden. Herrenhäuser Str. 4, 30419 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>Plant people; a quieter hour than the Great Garden; a wet afternoon spent in the glasshouses.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Ticket at the gate, and closing time shifts with the season. Pairs naturally with the Great Garden or with SEA LIFE next door.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Berggarten%2C%20Herrenh%C3%A4user%20Str.%204%2C%2030419%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.visit-hannover.com/en/Kultur-Sehensw%C3%BCrdigkeiten/Sehensw%C3%BCrdigkeiten/Die-Herrenh%C3%A4user-G%C3%A4rten/Der-Berggarten" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_berggarten }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_berggarten }}</span></button>
+      </article>
+
       <article hidden="{{ h_sealife }}" style="margin:0 0 46px">
         <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
           <image-slot id="p-sealife" shape="rect" radius="2" fit="cover" placeholder="SEA LIFE Hannover — the walk-through ocean tunnel"></image-slot>
@@ -721,6 +751,7 @@
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Pizza photo by <a href="https://commons.wikimedia.org/wiki/File:Pizza_Napoletana_Contemporanea.jpg" target="_blank" rel="noopener" style="color:inherit">CDibisceglia</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a>. It shows a Neapolitan pizza, not the restaurant itself.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Kaisers photo by <a href="https://commons.wikimedia.org/wiki/User:Bernd_Schwabe_in_Hannover" target="_blank" rel="noopener" style="color:inherit">Bernd Schwabe in Hannover</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener" style="color:inherit">CC BY 3.0</a>.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Spätzlehaus photo by Gunther Falchner, via <a href="https://commons.wikimedia.org/wiki/File:%22Das_Sp%C3%A4tzlehaus%22_-_Hannover-Herrenhaus_Hegebl%C3%A4ch_33-Ecke_Palmstra%C3%9Fe_-_panoramio.jpg" target="_blank" rel="noopener" style="color:inherit">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 3.0</a>.</p>
+      <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Berggarten photo by <a href="https://commons.wikimedia.org/wiki/File:Herrenhausen_Berggarten_2024-05-20zb.jpg" target="_blank" rel="noopener" style="color:inherit">Holbein66</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a>.</p>
 
     </div>
 
@@ -975,6 +1006,7 @@
 class Component extends DCLogic {
   places = [
     { id: 'herrenhausen', cat: 'nature', tags: ['outdoor'], walk: 25 },
+    { id: 'berggarten',   cat: 'nature', tags: ['outdoor', 'indoor'], walk: 25 },
     { id: 'sealife',      cat: 'nature', tags: ['indoor'], walk: 25 },
     { id: 'maschsee',     cat: 'nature', tags: ['outdoor', 'free'], walk: 36 },
     { id: 'eilenriede',   cat: 'nature', tags: ['outdoor', 'free'], walk: 30 },
