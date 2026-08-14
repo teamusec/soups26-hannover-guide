@@ -685,10 +685,42 @@
         <button onClick="{{ t_kaisers }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_kaisers }}</span></button>
       </article>
 
+      <article hidden="{{ h_spaetzlehaus }}" style="margin:0 0 46px">
+        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
+          <image-slot id="p-spaetzlehaus" shape="rect" radius="2" fit="cover" placeholder="Spätzlehaus — the turreted villa on Hegebläch, restaurant sign by the door"></image-slot>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Restaurant · Book ahead · Tue–Sat</div>
+            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Spätzlehaus</h3>
+            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~2.4 km · 12 min by tram 4/5</div>
+          </div>
+          <button onClick="{{ s_spaetzlehaus }}" aria-label="Save Spätzlehaus" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_spaetzlehaus }}</button>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">A gem for anyone who enjoys good spaetzle in a cozy atmosphere. Book in advance, as it can get quite busy. Unfortunately, no vegan options.</p>
+        <div style="margin:14px 0 0;padding:11px 13px;background:var(--color-accent-2-100);border-radius:var(--radius-md);font-size:13.5px;line-height:1.5;color:var(--color-accent-2-700)"><span style="font-style:italic">Note:</span> only open from Tuesday to Saturday.</div>
+        <div hidden="{{ x_spaetzlehaus }}">
+          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
+            <div>Tram 4 or 5 toward Herrenhausen, then a short walk past the Herrenhäuser Kirche. Hegebläch 33, 30419 Hannover.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
+            <div>A proper sit-down dinner; an evening that follows an afternoon in the Herrenhausen gardens.</div>
+            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
+            <div>Doors open at 17:00, and there is a beer garden for warm evenings. Of the two free conference evenings, only Tuesday falls inside its opening days.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hegebl%C3%A4ch%2033%2C%2030419%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
+            <a class="btn btn-secondary" href="https://www.spaetzlehaus.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
+          </div>
+        </div>
+        <button onClick="{{ t_spaetzlehaus }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_spaetzlehaus }}</span></button>
+      </article>
+
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Opening hours, prices and bookings change. Everything here was read off each venue's own site while we put the guide together — tap through before you cross town.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">E-Damm photo by <a href="https://commons.wikimedia.org/wiki/User:Bernd_Schwabe_in_Hannover" target="_blank" rel="noopener" style="color:inherit">Bernd Schwabe in Hannover</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a>.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Pizza photo by <a href="https://commons.wikimedia.org/wiki/File:Pizza_Napoletana_Contemporanea.jpg" target="_blank" rel="noopener" style="color:inherit">CDibisceglia</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 4.0</a>. It shows a Neapolitan pizza, not the restaurant itself.</p>
       <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Kaisers photo by <a href="https://commons.wikimedia.org/wiki/User:Bernd_Schwabe_in_Hannover" target="_blank" rel="noopener" style="color:inherit">Bernd Schwabe in Hannover</a>, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener" style="color:inherit">CC BY 3.0</a>.</p>
+      <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-700);margin:10px 0 0;font-style:italic;text-wrap:pretty">Spätzlehaus photo by Gunther Falchner, via <a href="https://commons.wikimedia.org/wiki/File:%22Das_Sp%C3%A4tzlehaus%22_-_Hannover-Herrenhaus_Hegebl%C3%A4ch_33-Ecke_Palmstra%C3%9Fe_-_panoramio.jpg" target="_blank" rel="noopener" style="color:inherit">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 3.0</a>.</p>
 
     </div>
 
@@ -960,7 +992,8 @@ class Component extends DCLogic {
     { id: 'bavarium',     cat: 'food',   tags: ['indoor'], walk: 24 },
     { id: 'edamm',        cat: 'food',   tags: ['indoor', 'outdoor'], walk: 11 },
     { id: 'francesca',    cat: 'food',   tags: ['indoor'], walk: 21 },
-    { id: 'kaisers',      cat: 'food',   tags: ['indoor'], walk: 8 }
+    { id: 'kaisers',      cat: 'food',   tags: ['indoor'], walk: 8 },
+    { id: 'spaetzlehaus', cat: 'food',   tags: ['indoor', 'outdoor', 'book'], walk: 30 }
   ];
 
   load(key, fallback) {
