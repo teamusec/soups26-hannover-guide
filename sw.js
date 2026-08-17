@@ -11,6 +11,7 @@ const SHELL = [
   './icons/icon-192.png',
   './icons/icon-512.png',
   './images/welfenschloss.webp',
+  './images/leine-eis.webp',
   './images/sponsor-hannoverimpuls.webp',
   './images/sponsor-cispa.webp',
   './images/sponsor-google.svg',
