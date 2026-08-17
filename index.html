@@ -320,36 +320,6 @@
         <button onClick="{{ t_beta }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_beta }}</span></button>
       </article>
 
-      <article hidden="{{ h_leinewelle }}" style="margin:0 0 46px">
-        <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
-          <image-slot id="p-leinewelle" shape="rect" radius="2" fit="cover" placeholder="Leine-Welle — a surfer on the standing river wave beside the old town"></image-slot>
-        </div>
-        <div style="display:flex;gap:12px;align-items:flex-start">
-          <div style="flex:1;min-width:0">
-            <div style="font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-700)">Sport · Free to watch · 30 min</div>
-            <h3 style="font-size:24px;margin:4px 0 0;letter-spacing:-0.015em">Leine-Welle</h3>
-            <div style="font-size:13px;color:var(--color-neutral-700);margin-top:4px">~1.5 km · 20 min walk</div>
-          </div>
-          <button onClick="{{ s_leinewelle }}" aria-label="Save Leine-Welle" style="appearance:none;background:none;border:0;width:44px;height:44px;flex:none;margin:-6px -8px 0 0;padding:0;font-size:22px;line-height:1;cursor:pointer;color:var(--color-accent-2)">{{ star_leinewelle }}</button>
-        </div>
-        <p style="font-size:15.5px;line-height:1.6;margin:12px 0 0;text-wrap:pretty">A standing wave built into the river in the middle of the old town, right beside the state parliament. River surfers take it in turns while the rest of the city watches from the bridge. Easily the strangest ten minutes you can add to a walk into town — and free.</p>
-        <div hidden="{{ x_leinewelle }}">
-          <div style="display:grid;grid-template-columns:92px 1fr;gap:8px 14px;font-size:14px;line-height:1.55;margin-top:18px">
-            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Getting there</div>
-            <div>Walk south along the Leine into the Altstadt. Schloßstraße, 30159 Hannover.</div>
-            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Good for</div>
-            <div>A detour on the way to dinner; watching, mostly.</div>
-            <div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:4px">Worth knowing</div>
-            <div>Watching from the bridges costs nothing. Actually surfing needs a slot booked in advance, and the wave only runs when river conditions allow — check the site the same day.</div>
-          </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
-            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Schlo%C3%9Fstra%C3%9Fe%2C%2030159%20Hannover" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Directions</a>
-            <a class="btn btn-secondary" href="https://www.enercity-leinewelle.de/" target="_blank" rel="noopener" style="font-size:14px;min-height:44px">Official site ↗</a>
-          </div>
-        </div>
-        <button onClick="{{ t_leinewelle }}" style="appearance:none;background:none;border:0;padding:12px 0 0;margin:0;font:inherit;font-size:14px;color:var(--color-accent-700);cursor:pointer;display:flex;align-items:center;gap:7px;min-height:44px">Details <span style="font-size:11px">{{ chev_leinewelle }}</span></button>
-      </article>
-
       <article hidden="{{ h_neongolf }}" style="margin:0 0 46px">
         <div hidden="{{ noPhotos }}" style="position:relative;height:186px;margin-bottom:14px">
           <image-slot id="p-neongolf" shape="rect" radius="2" fit="cover" placeholder="NeonGolf Hannover — blacklit 3D mini-golf course glowing in neon"></image-slot>
@@ -1080,7 +1050,6 @@ class Component extends DCLogic {
     { id: 'eilenriede',   cat: 'nature', tags: ['outdoor', 'free'], walk: 30 },
     { id: 'zoo',          cat: 'nature', tags: ['outdoor'], walk: 46 },
     { id: 'beta',         cat: 'sport',  tags: ['indoor'], walk: 12 },
-    { id: 'leinewelle',   cat: 'sport',  tags: ['outdoor', 'free', 'book'], walk: 20 },
     { id: 'neongolf',     cat: 'sport',  tags: ['indoor', 'book'], walk: 19 },
     { id: 'jumpone',      cat: 'sport',  tags: ['indoor'], walk: 13 },
     { id: 'hiscore',      cat: 'sport',  tags: ['indoor', 'book'], walk: 48 },
