@@ -32,21 +32,21 @@
 const VENUE = [52.38269, 9.71818];
 const CAT = {
   venue:  { color: '#d6006c', label: 'Conference venue' },
-  nature: { color: '#0088b0', label: 'Nature & wildlife' },
+  sights: { color: '#0088b0', label: 'Sights & nature' },
   sport:  { color: '#006786', label: 'Sports & action' },
-  food:   { color: '#edbb00', label: 'Dining & bars' },
-  sights: { color: '#790e3d', label: 'Sights & landmarks' }
+  food:   { color: '#edbb00', label: 'Dining & bars' }
 };
 // Tuple order: [cat, name, addr, meta, lat, lon, id] — id is the join key to
 // the host app's `places` slugs (index.html), used for filter sync.
 const PLACES = [
   ['venue','Leibniz University Hannover','Welfengarten 1, 30167 Hannover','SOUPS 2026 · Welfenschloss',52.38269,9.71818,'venue'],
-  ['nature','Herrenhausen Gardens','Herrenhäuser Str. 4, 30419 Hannover','~1.7 km · 10 min by tram 4/5',52.39080,9.69770,'herrenhausen'],
-  ['nature','Berggarten','Herrenhäuser Str. 4, 30419 Hannover','~1.8 km · 10 min by tram 4/5',52.39216,9.69943,'berggarten'],
-  ['nature','SEA LIFE Hannover','Herrenhäuser Str. 4a, 30419 Hannover','~1.7 km · 10 min by tram 4/5',52.39265,9.69900,'sealife'],
-  ['nature','Maschsee','Rudolf-von-Bennigsen-Ufer, 30169 Hannover','~2.8 km · 15 min by tram',52.36090,9.74000,'maschsee'],
-  ['nature','Erlebnis-Zoo Hannover','Adenauerallee 3, 30175 Hannover','~3.6 km · 20 min by tram + bus',52.38107,9.77074,'zoo'],
-  ['nature','Eilenriede — Waldstation','Kleestraße 81, 30625 Hannover','Forest edge ~2 km · Waldstation ~4.9 km',52.38990,9.78888,'eilenriede'],
+  ['sights','Herrenhausen Gardens','Herrenhäuser Str. 4, 30419 Hannover','~1.7 km · 10 min by tram 4/5',52.39080,9.69770,'herrenhausen'],
+  ['sights','Berggarten','Herrenhäuser Str. 4, 30419 Hannover','~1.8 km · 10 min by tram 4/5',52.39216,9.69943,'berggarten'],
+  ['sights','SEA LIFE Hannover','Herrenhäuser Str. 4a, 30419 Hannover','~1.7 km · 10 min by tram 4/5',52.39265,9.69900,'sealife'],
+  ['sights','Maschsee','Rudolf-von-Bennigsen-Ufer, 30169 Hannover','~2.8 km · 15 min by tram',52.36090,9.74000,'maschsee'],
+  ['sights','Erlebnis-Zoo Hannover','Adenauerallee 3, 30175 Hannover','~3.6 km · 20 min by tram + bus',52.38107,9.77074,'zoo'],
+  ['sights','Eilenriede — Waldstation','Kleestraße 81, 30625 Hannover','Forest edge ~2 km · Waldstation ~4.9 km',52.38990,9.78888,'eilenriede'],
+  ['sights','Neues Rathaus','Trammplatz 2, 30159 Hannover','~2.2 km · 12 min by tram',52.36722,9.73735,'rathaus'],
   ['sport','Beta Boulderhalle','Gertrud-Knebusch-Str. 15, 30167 Hannover','~900 m · 12 min walk',52.38510,9.73120,'beta'],
   ['sport','NeonGolf Hannover','Heiligerstraße 15-16, 30159 Hannover','~1.5 km · 19 min walk',52.37440,9.73551,'neongolf'],
   ['sport','Jump One Hannover','Weidendamm 2, 30167 Hannover','~1.0 km · 13 min walk',52.38469,9.73226,'jumpone'],
@@ -61,8 +61,7 @@ const PLACES = [
   ['food','Francesca & Fratelli','Seilwinderstraße 2, 30159 Hannover','~1.7 km · 21 min walk',52.37241,9.73613,'francesca'],
   ['food','Kaisers','Schaufelder Straße 27, 30167 Hannover','~650 m · 8 min walk',52.38844,9.71647,'kaisers'],
   ['food','Spätzlehaus','Hegebläch 33, 30419 Hannover','~2.4 km · 12 min by tram 4/5',52.39608,9.69140,'spaetzlehaus'],
-  ['food','Leine Eis','Klostergang 1, 30159 Hannover','~1.5 km · 20 min walk',52.37147,9.73158,'leineeis'],
-  ['sights','Neues Rathaus','Trammplatz 2, 30159 Hannover','~2.2 km · 12 min by tram',52.36722,9.73735,'rathaus']
+  ['food','Leine Eis','Klostergang 1, 30159 Hannover','~1.5 km · 20 min walk',52.37147,9.73158,'leineeis']
 ];
 
 const map = L.map('map', { center: VENUE, zoom: 14, zoomControl: true, scrollWheelZoom: true });
