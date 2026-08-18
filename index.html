@@ -82,7 +82,6 @@
           <button onClick="{{ tagWalk }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagWalk }}; color: {{ fgTagWalk }}; border-color: {{ bdTagWalk }}">Under 20 min walk</button>
           <button onClick="{{ tagIndoor }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagIndoor }}; color: {{ fgTagIndoor }}; border-color: {{ bdTagIndoor }}">Indoors</button>
           <button onClick="{{ tagOutdoor }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagOutdoor }}; color: {{ fgTagOutdoor }}; border-color: {{ bdTagOutdoor }}">Outdoors</button>
-          <button onClick="{{ tagBook }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagBook }}; color: {{ fgTagBook }}; border-color: {{ bdTagBook }}">Book ahead</button>
           <button onClick="{{ tagSaved }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagSaved }}; color: {{ fgTagSaved }}; border-color: {{ bdTagSaved }}">★ Saved {{ savedCount }}</button>
         </div>
       </div>
@@ -804,7 +803,6 @@
           <button onClick="{{ tagWalk }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagWalk }}; color: {{ fgTagWalk }}; border-color: {{ bdTagWalk }}">Under 20 min walk</button>
           <button onClick="{{ tagIndoor }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagIndoor }}; color: {{ fgTagIndoor }}; border-color: {{ bdTagIndoor }}">Indoors</button>
           <button onClick="{{ tagOutdoor }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagOutdoor }}; color: {{ fgTagOutdoor }}; border-color: {{ bdTagOutdoor }}">Outdoors</button>
-          <button onClick="{{ tagBook }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagBook }}; color: {{ fgTagBook }}; border-color: {{ bdTagBook }}">Book ahead</button>
           <button onClick="{{ tagSaved }}" style="appearance:none;cursor:pointer;font:inherit;font-size:13.5px;padding:8px 13px;min-height:40px;border-radius:var(--radius-md);border:1px solid; background: {{ bgTagSaved }}; color: {{ fgTagSaved }}; border-color: {{ bdTagSaved }}">★ Saved {{ savedCount }}</button>
         </div>
       </div>
@@ -1040,9 +1038,9 @@ class Component extends DCLogic {
     { id: 'zoo',          cat: 'sights', tags: ['outdoor'], walk: 46 },
     { id: 'rathaus',      cat: 'sights', tags: ['indoor', 'free'], walk: 27 },
     { id: 'beta',         cat: 'sport',  tags: ['indoor'], walk: 12 },
-    { id: 'neongolf',     cat: 'sport',  tags: ['indoor', 'book'], walk: 19 },
+    { id: 'neongolf',     cat: 'sport',  tags: ['indoor'], walk: 19 },
     { id: 'jumpone',      cat: 'sport',  tags: ['indoor'], walk: 13 },
-    { id: 'hiscore',      cat: 'sport',  tags: ['indoor', 'book'], walk: 48 },
+    { id: 'hiscore',      cat: 'sport',  tags: ['indoor'], walk: 48 },
     { id: 'extrakt',      cat: 'food',   tags: ['indoor'], walk: 6 },
     { id: 'destille',     cat: 'food',   tags: ['indoor'], walk: 3 },
     { id: 'santana',      cat: 'food',   tags: ['indoor'], walk: 5 },
@@ -1052,7 +1050,7 @@ class Component extends DCLogic {
     { id: 'edamm',        cat: 'food',   tags: ['indoor', 'outdoor'], walk: 11 },
     { id: 'francesca',    cat: 'food',   tags: ['indoor'], walk: 21 },
     { id: 'kaisers',      cat: 'food',   tags: ['indoor'], walk: 8 },
-    { id: 'spaetzlehaus', cat: 'food',   tags: ['indoor', 'outdoor', 'book'], walk: 30 },
+    { id: 'spaetzlehaus', cat: 'food',   tags: ['indoor', 'outdoor'], walk: 30 },
     { id: 'leineeis',     cat: 'food',   tags: ['outdoor'], walk: 20 }
   ];
 
@@ -1154,7 +1152,6 @@ class Component extends DCLogic {
     const t = s.tags;
     if (t.saved && !s.saved[p.id]) return false;
     if (t.free && p.tags.indexOf('free') < 0) return false;
-    if (t.book && p.tags.indexOf('book') < 0) return false;
     if (t.indoor && p.tags.indexOf('indoor') < 0) return false;
     if (t.outdoor && p.tags.indexOf('outdoor') < 0) return false;
     if (t.walk && p.walk > 20) return false;
@@ -1213,7 +1210,6 @@ class Component extends DCLogic {
       tagWalk: () => this.toggleTag('walk'),
       tagIndoor: () => this.toggleTag('indoor'),
       tagOutdoor: () => this.toggleTag('outdoor'),
-      tagBook: () => this.toggleTag('book'),
       tagSaved: () => this.toggleTag('saved'),
 
       hHeadSightsNature: !visible.some((p) => p.cat === 'sights'),
@@ -1227,7 +1223,7 @@ class Component extends DCLogic {
       out['bgCat' + k] = c.bg; out['fgCat' + k] = c.fg; out['bdCat' + k] = c.bd;
     });
 
-    const tagKeys = { Free: 'free', Walk: 'walk', Indoor: 'indoor', Outdoor: 'outdoor', Book: 'book', Saved: 'saved' };
+    const tagKeys = { Free: 'free', Walk: 'walk', Indoor: 'indoor', Outdoor: 'outdoor', Saved: 'saved' };
     Object.keys(tagKeys).forEach((k) => {
       const c = this.chip(!!s.tags[tagKeys[k]]);
       out['bgTag' + k] = c.bg; out['fgTag' + k] = c.fg; out['bdTag' + k] = c.bd;
