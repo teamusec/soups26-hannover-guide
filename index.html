@@ -31,6 +31,8 @@
   :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
   ::selection { background: color-mix(in srgb, var(--color-accent) 25%, transparent); }
   button { font-family: var(--font-body); }
+  #cocBody h3 { font-size:19px; font-family:var(--font-heading); font-weight:600; line-height:1.25; margin:28px 0 0; }
+  #cocBody p  { font-size:15px; line-height:1.6; margin:10px 0 0; text-wrap:pretty; }
 </style>
 </helmet>
 
@@ -849,37 +851,54 @@
       </div>
     </div>
 
+    <!-- ═══ CODE OF CONDUCT ═══ -->
+    <div hidden="{{ notCoc }}">
+      <h2 style="font-size:26px;margin:22px 0 0">SOUPS 2026 Code of Conduct</h2>
+      <p hidden="{{ cocReady }}" style="font-size:14.5px;line-height:1.55;color:var(--color-neutral-700);margin:8px 0 0">{{ cocStatus }}</p>
+      <div id="cocBody" style="margin:18px 0 0"></div>
+      <div style="margin:34px 0 0">
+        <a class="btn btn-primary" href="mailto:soups2026-coc@teamusec.de" style="font-size:14px;min-height:44px">Email the CoC contact</a>
+      </div>
+    </div>
+
   </main>
 
   <nav style="position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;z-index:40;background:var(--color-bg);padding-bottom:env(safe-area-inset-bottom)">
     <div style="height:1px;background:var(--color-divider)"></div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr)">
       <button onClick="{{ goExplore }}" style="appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-height:58px">
         <div style="height:2px;width:100%;background: {{ tabRuleExplore }}"></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;color: {{ tabFgExplore }}">
           <i class="ph-duotone ph-compass" style="font-size:22px;line-height:1"></i>
-          <span style="font-size:11px;letter-spacing:.06em">Explore</span>
+          <span style="font-size:11px;letter-spacing:.06em;white-space:nowrap">Explore</span>
         </div>
       </button>
       <button onClick="{{ goMap }}" style="appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-height:58px">
         <div style="height:2px;width:100%;background: {{ tabRuleMap }}"></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;color: {{ tabFgMap }}">
           <i class="ph-duotone ph-map-trifold" style="font-size:22px;line-height:1"></i>
-          <span style="font-size:11px;letter-spacing:.06em">Map</span>
+          <span style="font-size:11px;letter-spacing:.06em;white-space:nowrap">Map</span>
         </div>
       </button>
       <button onClick="{{ goProgram }}" style="appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-height:58px">
         <div style="height:2px;width:100%;background: {{ tabRuleProgram }}"></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;color: {{ tabFgProgram }}">
           <i class="ph-duotone ph-calendar-dots" style="font-size:22px;line-height:1"></i>
-          <span style="font-size:11px;letter-spacing:.06em">Program</span>
+          <span style="font-size:11px;letter-spacing:.06em;white-space:nowrap">Program</span>
         </div>
       </button>
       <button onClick="{{ goInfo }}" style="appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-height:58px">
         <div style="height:2px;width:100%;background: {{ tabRuleInfo }}"></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;color: {{ tabFgInfo }}">
           <i class="ph-duotone ph-info" style="font-size:22px;line-height:1"></i>
-          <span style="font-size:11px;letter-spacing:.06em">Info</span>
+          <span style="font-size:11px;letter-spacing:.06em;white-space:nowrap">Info</span>
+        </div>
+      </button>
+      <button onClick="{{ goCoc }}" style="appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-height:58px">
+        <div style="height:2px;width:100%;background: {{ tabRuleCoc }}"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;color: {{ tabFgCoc }}">
+          <i class="ph-duotone ph-scales" style="font-size:22px;line-height:1"></i>
+          <span style="font-size:11px;letter-spacing:.06em;white-space:nowrap">CoC</span>
         </div>
       </button>
     </div>
@@ -887,7 +906,7 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showPhotos&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Feed&quot;,&quot;label&quot;:&quot;Show photos in the feed&quot;},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;explore&quot;,&quot;map&quot;,&quot;program&quot;,&quot;info&quot;],&quot;default&quot;:&quot;explore&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Feed&quot;,&quot;label&quot;:&quot;Tab shown on first open&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;showPhotos&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Feed&quot;,&quot;label&quot;:&quot;Show photos in the feed&quot;},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;explore&quot;,&quot;map&quot;,&quot;program&quot;,&quot;info&quot;,&quot;coc&quot;],&quot;default&quot;:&quot;explore&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Feed&quot;,&quot;label&quot;:&quot;Tab shown on first open&quot;}}">
 class Component extends DCLogic {
   places = [
     { id: 'herrenhausen', cat: 'sights', tags: ['outdoor'], walk: 25 },
@@ -932,7 +951,8 @@ class Component extends DCLogic {
     saved: this.load('saved', {}) || {},
     bannerOff: this.load('bannerOff', false),
     prompt: null,
-    standalone: false
+    standalone: false,
+    coc: 'loading'
   };
 
   componentDidMount() {
@@ -950,6 +970,34 @@ class Component extends DCLogic {
 
     this._onMsg = (e) => { if (e.data && e.data.mapReady) this.syncMap(); };
     addEventListener('message', this._onMsg);
+
+    fetch('./soups26-coc.html')
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then((t) => {
+        const el = document.getElementById('cocBody');
+        if (el) el.innerHTML = this.cocHtml(t);
+        this.setState({ coc: 'ready' });
+      })
+      .catch(() => this.setState({ coc: 'error' }));
+  }
+
+  /* soups26-coc.html is a fragment: blank-line-separated blocks, <b> used both
+     for standalone headings and for inline lead-ins. Headings carry no blank
+     line after them, so the heading test runs on a block's FIRST LINE and the
+     rest of the block becomes the paragraph. */
+  cocHtml(text) {
+    const HEAD = /^<b>[^<]*<\/b>$/;
+    return text.trim().split(/\n\s*\n/).map((block, i) => {
+      const lines = block.split('\n').map((l) => l.trim()).filter(Boolean);
+      let out = '';
+      // Block 0 is the file's own "Code of Conduct" title — the tab's <h2> covers it.
+      if (HEAD.test(lines[0])) {
+        if (i > 0) out += '<h3>' + lines[0].slice(3, -4) + '</h3>';
+        lines.shift();
+      }
+      if (lines.length) out += '<p>' + lines.join(' ') + '</p>';
+      return out;
+    }).join('').replace(/soups2026-coc@teamusec\.de/g, '<a href="mailto:$&">$&</a>');
   }
 
   componentDidUpdate() {
@@ -1029,11 +1077,18 @@ class Component extends DCLogic {
       notMap: s.tab !== 'map',
       notProgram: s.tab !== 'program',
       notInfo: s.tab !== 'info',
+      notCoc: s.tab !== 'coc',
 
       goExplore: () => this.setTab('explore'),
       goMap: () => this.setTab('map'),
       goProgram: () => this.setTab('program'),
       goInfo: () => this.setTab('info'),
+      goCoc: () => this.setTab('coc'),
+
+      cocReady: s.coc === 'ready',
+      cocStatus: s.coc === 'error'
+        ? 'The Code of Conduct could not be loaded. Email soups2026-coc@teamusec.de.'
+        : 'Loading…',
 
       resultLine: n === 0 ? 'No places' : (n === 1 ? '1 place' : n + ' places'),
       hasResults: n > 0,
@@ -1080,7 +1135,7 @@ class Component extends DCLogic {
       out['bgTag' + k] = c.bg; out['fgTag' + k] = c.fg; out['bdTag' + k] = c.bd;
     });
 
-    const tabs = { Explore: 'explore', Map: 'map', Program: 'program', Info: 'info' };
+    const tabs = { Explore: 'explore', Map: 'map', Program: 'program', Info: 'info', Coc: 'coc' };
     Object.keys(tabs).forEach((k) => {
       const on = s.tab === tabs[k];
       out['tabFg' + k] = on ? 'var(--color-accent-700)' : 'var(--color-neutral-700)';

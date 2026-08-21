@@ -1,12 +1,13 @@
 /* SOUPS 2026 Hannover Guide — offline service worker.
    Cache-first for the app shell, network-first (with cache fallback) for map tiles. */
-const VERSION = 'soups26-guide-v32';
+const VERSION = 'soups26-guide-v33';
 const SHELL = [
   './',
   './index.html',
   './support.js',
   './image-slot.js',
   './map.html',
+  './soups26-coc.html',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',

@@ -57,8 +57,9 @@ otherwise installed copies keep serving the old cache.
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The whole app — feed, map tab, programme, practical info |
+| `index.html` | The whole app — feed, map tab, programme, practical info, code of conduct |
 | `map.html` | The Leaflet map, embedded by the Map tab |
+| `soups26-coc.html` | The code of conduct text, loaded by the CoC tab |
 | `support.js` | Runtime that renders `index.html` |
 | `image-slot.js` | Photograph slots |
 | `sw.js` | Service worker — offline caching |
